@@ -2,13 +2,8 @@
     <span><%= link_to "Nex Blog", root_path %></span>
     
     <div>
-        <% flash.each do |type, msg| %>
-            <div class="alert alert-<%= type %>">
-                <%= msg %>
-            </div>
-        <% end %>
         <% if user_signed_in? %>
-            <%= link_to 'Sign Out', sign_out_path, class: 'sign_out', method: :delete %>
+            <%= button_to 'Sign Out', signout_path, class: 'sign_out', method: :delete %>
         <% end %>
     </div>
 </div>

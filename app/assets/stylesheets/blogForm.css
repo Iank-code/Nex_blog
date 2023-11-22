@@ -1,0 +1,15 @@
+.blogForm {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 0 auto;
+}
+input {
+  width: 20em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.blogForm > * {
+  display: flex;
+  flex-direction: column;
+}

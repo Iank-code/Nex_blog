@@ -1,4 +1,20 @@
-<h1>Posts</h1>
+<%= stylesheet_link_tag 'blogForm.css' %>
+
+<% if !user_signed_in? %>
+    <div class="blogForm">
+        <%= form_with(model: @post, local: true) do |form| %>
+            <%= form.label :title %>
+            <%= form.text_field :title %>
+
+            <%= form.label :content %>
+            <%= form.rich_text_area :content %>
+
+            <%= form.submit %>
+        <% end %>
+    </div>
+    <%# <%= link_to 'New Post', new_post_path %> %>
+<% end %>
+
 
 
 <% @posts.each do |post| %>
@@ -9,5 +25,3 @@
         <%= post.content.to_plain_text %>
     </p>
 <% end %>
-
-<%= link_to 'New Post', new_post_path %>

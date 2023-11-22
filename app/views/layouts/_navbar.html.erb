@@ -1,9 +1,14 @@
-<div>
-    <span><%= link_to "Nex Blog", root_path %></span>
+<%= stylesheet_link_tag 'navbar.css' %>
+<div class="container">
+    <%= link_to "Nex Blog", root_path %>
     
-    <div>
+    <div class="links">
+        <% if !user_signed_in? %>
+            <%= link_to 'Register', new_user_path, class: 'sign_out', method: :delete %>
+            <%= link_to 'Login', new_session_path, class: 'sign_out', method: :delete %>
+        <% end %>
         <% if user_signed_in? %>
             <%= button_to 'Sign Out', signout_path, class: 'sign_out', method: :delete %>
         <% end %>
     </div>
-</div>
+</div> 

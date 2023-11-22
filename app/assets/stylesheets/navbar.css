@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  padding: 1em 3em;
+  justify-content: space-between;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.links {
+  display: flex;
+  gap: 10px;
+}

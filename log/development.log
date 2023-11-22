@@ -14350,3 +14350,178 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.2ms | Allocations: 8232)
 
 
+Started GET "/" for ::1 at 2023-11-23 01:32:06 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 47.8ms | Allocations: 4546)
+  Rendered layouts/_navbar.html.erb (Duration: 2.5ms | Allocations: 766)
+  Rendered layout layouts/application.html.erb (Duration: 59.7ms | Allocations: 8038)
+Completed 200 OK in 61ms (Views: 60.4ms | ActiveRecord: 0.2ms | Allocations: 8283)
+
+
+Started DELETE "/signout" for ::1 at 2023-11-23 01:32:07 +0300
+Processing by SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 765)
+
+
+Started GET "/" for ::1 at 2023-11-23 01:32:07 +0300
+Processing by PostsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1376)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 731)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 4813)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.1ms | Allocations: 5062)
+
+
+Started GET "/" for ::1 at 2023-11-23 01:32:10 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1372)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 728)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 4826)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.1ms | Allocations: 5071)
+
+
+Started GET "/sessions/new" for ::1 at 2023-11-23 01:32:14 +0300
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1142)
+  Rendered layouts/_navbar.html.erb (Duration: 1.4ms | Allocations: 715)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 4789)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 5168)
+
+
+Started POST "/sessions" for ::1 at 2023-11-23 01:32:16 +0300
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 294ms (ActiveRecord: 0.3ms | Allocations: 858)
+
+
+Started GET "/" for ::1 at 2023-11-23 01:32:16 +0300
+Processing by PostsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 4532)
+  Rendered layouts/_navbar.html.erb (Duration: 1.4ms | Allocations: 761)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 7998)
+Completed 200 OK in 14ms (Views: 13.7ms | ActiveRecord: 0.2ms | Allocations: 8247)
+
+
+Started POST "/posts" for ::1 at 2023-11-23 01:32:50 +0300
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "title"=>"First item", "content"=>"<div>This is the first item</div><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>", "commit"=>"Save "}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:22:in `block in create'
+  [1m[36mPost Create (2.0ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["title", "First item"], ["content", nil], ["created_at", "2023-11-22 22:32:50.669981"], ["updated_at", "2023-11-22 22:32:50.669981"]]
+  ↳ app/controllers/posts_controller.rb:22:in `block in create'
+  [1m[36mActionText::RichText Create (0.2ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "content"], ["body", "<div>This is the first item</div><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>"], ["record_type", "Post"], ["record_id", 5], ["created_at", "2023-11-22 22:32:50.696245"], ["updated_at", "2023-11-22 22:32:50.696245"]]
+  ↳ app/controllers/posts_controller.rb:22:in `block in create'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 5], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/posts_controller.rb:22:in `block in create'
+  [1m[36mPost Update (0.1ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2023-11-22 22:32:50.698959"], ["id", 5]]
+  ↳ app/controllers/posts_controller.rb:22:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:22:in `block in create'
+Completed 422 Unprocessable Entity in 42ms (Views: 0.3ms | ActiveRecord: 3.0ms | Allocations: 16346)
+
+
+Started GET "/" for ::1 at 2023-11-23 01:32:50 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:19
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.7ms | Allocations: 388)
+  Rendered posts/index.html.erb within layouts/application (Duration: 21.3ms | Allocations: 6286)
+  Rendered layouts/_navbar.html.erb (Duration: 1.8ms | Allocations: 760)
+  Rendered layout layouts/application.html.erb (Duration: 30.5ms | Allocations: 9751)
+Completed 200 OK in 32ms (Views: 30.9ms | ActiveRecord: 0.3ms | Allocations: 9995)
+
+
+Started DELETE "/signout" for ::1 at 2023-11-23 01:32:58 +0300
+Processing by SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 697)
+
+
+Started GET "/" for ::1 at 2023-11-23 01:32:58 +0300
+Processing by PostsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:19
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.9ms | Allocations: 380)
+  Rendered posts/index.html.erb within layouts/application (Duration: 8.6ms | Allocations: 3128)
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | Allocations: 712)
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 6545)
+Completed 200 OK in 18ms (Views: 17.4ms | ActiveRecord: 0.2ms | Allocations: 6793)
+
+
+Started DELETE "/posts/5" for ::1 at 2023-11-23 01:33:00 +0300
+Processing by PostsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"5"}
+Redirected to http://localhost:3000/users/new
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 244)
+
+
+Started GET "/users/new" for ::1 at 2023-11-23 01:33:00 +0300
+Processing by UsersController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 3.3ms | Allocations: 1712)
+  Rendered users/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1998)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 714)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 5644)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 6094)
+
+
+Started GET "/" for ::1 at 2023-11-23 01:33:02 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:19
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.1ms | Allocations: 388)
+  Rendered posts/index.html.erb within layouts/application (Duration: 10.5ms | Allocations: 3138)
+  Rendered layouts/_navbar.html.erb (Duration: 1.3ms | Allocations: 712)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 6555)
+Completed 200 OK in 17ms (Views: 16.5ms | ActiveRecord: 0.2ms | Allocations: 6801)
+
+

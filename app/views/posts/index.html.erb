@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag 'blogForm.css' %>
 
-<% if !user_signed_in? %>
+<% if user_signed_in? %>
     <div class="blogForm">
         <%= form_with(model: @post, local: true) do |form| %>
             <%= form.label :title %>
@@ -12,7 +12,6 @@
             <%= form.submit %>
         <% end %>
     </div>
-    <%# <%= link_to 'New Post', new_post_path %> %>
 <% end %>
 
 

@@ -15,27 +15,6 @@ class PostsController < ApplicationController
         @post = Post.new
     end
 
-    # def create
-    #     @post = Post.new(post_params)
-
-    #     if @post.save
-    #         puts @post
-    #         redirect_to post_path, notice: "Post was successfully created"
-
-    #     else
-    #         render :new
-    #     end
-    #     # respond_to do |format|
-    #     #     if @post.save
-    #     #         format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
-    #     #         format.json { render :show, status: :created, location: @post }
-    #     #     else
-    #     #         format.html { render :new, status: :unprocessable_entity }
-    #     #         format.json { render json: @post.errors, status: :unprocessable_entity }
-    #     #     end
-    #     # end
-    # end
-
     def create
         @post = Post.new(title: params[:title], content: params[:content])
         # @post.user = current_user
@@ -48,9 +27,15 @@ class PostsController < ApplicationController
         end
     end
 
-    
-      
+    def destroy
+        @post = Post.find(params[:id])
+        @post.destroy
+        respond_to do |format|
+            format.html { redirect_to root_path, notice: 'Post was successfully destroyed.'}
+        end
+    end
 
+    
     private
     
     def set_post

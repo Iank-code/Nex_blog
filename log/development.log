@@ -13823,3 +13823,530 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 44ms (Views: 42.3ms | ActiveRecord: 0.9ms | Allocations: 13118)
 
 
+Started GET "/posts" for ::1 at 2023-11-23 01:27:06 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:19
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 7.2ms | Allocations: 472)
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.4ms | Allocations: 247)
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.9ms | Allocations: 238)
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.5ms | Allocations: 328)
+  Rendered posts/index.html.erb within layouts/application (Duration: 77.1ms | Allocations: 18757)
+  Rendered layouts/_navbar.html.erb (Duration: 4.5ms | Allocations: 1030)
+  Rendered layout layouts/application.html.erb (Duration: 123.8ms | Allocations: 37339)
+Completed 200 OK in 133ms (Views: 121.9ms | ActiveRecord: 4.9ms | Allocations: 40288)
+
+
+Started GET "/posts" for ::1 at 2023-11-23 01:27:07 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:19
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.7ms | Allocations: 247)
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.6ms | Allocations: 238)
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.3ms | Allocations: 238)
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.7ms | Allocations: 328)
+  Rendered posts/index.html.erb within layouts/application (Duration: 36.8ms | Allocations: 10463)
+  Rendered layouts/_navbar.html.erb (Duration: 2.5ms | Allocations: 760)
+  Rendered layout layouts/application.html.erb (Duration: 44.5ms | Allocations: 13936)
+Completed 200 OK in 47ms (Views: 45.0ms | ActiveRecord: 0.9ms | Allocations: 14181)
+
+
+Started GET "/posts" for ::1 at 2023-11-23 01:28:12 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:19
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 2.0ms | Allocations: 469)
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.6ms | Allocations: 247)
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.5ms | Allocations: 238)
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.3ms | Allocations: 328)
+  Rendered posts/index.html.erb within layouts/application (Duration: 50.2ms | Allocations: 19236)
+  Rendered layouts/_navbar.html.erb (Duration: 2.3ms | Allocations: 1034)
+  Rendered layout layouts/application.html.erb (Duration: 84.8ms | Allocations: 37754)
+Completed 200 OK in 94ms (Views: 82.3ms | ActiveRecord: 4.3ms | Allocations: 40700)
+
+
+Started DELETE "/posts/3" for ::1 at 2023-11-23 01:28:14 +0300
+  
+AbstractController::ActionNotFound (The action 'destroy' could not be found for PostsController):
+  
+actionpack (7.1.2) lib/abstract_controller/base.rb:155:in `process'
+actionview (7.1.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+rack (3.0.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+actionpack (7.1.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.2) lib/active_record/migration.rb:654:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.2) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/posts" for ::1 at 2023-11-23 01:28:14 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:19
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.9ms | Allocations: 247)
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.8ms | Allocations: 238)
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.1ms | Allocations: 238)
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.7ms | Allocations: 328)
+  Rendered posts/index.html.erb within layouts/application (Duration: 34.7ms | Allocations: 10955)
+  Rendered layouts/_navbar.html.erb (Duration: 2.6ms | Allocations: 763)
+  Rendered layout layouts/application.html.erb (Duration: 42.9ms | Allocations: 14451)
+Completed 200 OK in 44ms (Views: 42.8ms | ActiveRecord: 0.7ms | Allocations: 14696)
+
+
+Started GET "/posts" for ::1 at 2023-11-23 01:28:16 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:19
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.7ms | Allocations: 238)
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.6ms | Allocations: 238)
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.1ms | Allocations: 238)
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.9ms | Allocations: 328)
+  Rendered posts/index.html.erb within layouts/application (Duration: 39.8ms | Allocations: 10933)
+  Rendered layouts/_navbar.html.erb (Duration: 2.5ms | Allocations: 760)
+  Rendered layout layouts/application.html.erb (Duration: 51.8ms | Allocations: 14398)
+Completed 200 OK in 54ms (Views: 52.0ms | ActiveRecord: 1.4ms | Allocations: 14642)
+
+
+Started DELETE "/posts/2" for ::1 at 2023-11-23 01:28:18 +0300
+  
+AbstractController::ActionNotFound (The action 'destroy' could not be found for PostsController):
+  
+actionpack (7.1.2) lib/abstract_controller/base.rb:155:in `process'
+actionview (7.1.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+rack (3.0.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+actionpack (7.1.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.2) lib/active_record/migration.rb:654:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.2) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/posts" for ::1 at 2023-11-23 01:28:18 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:19
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.8ms | Allocations: 238)
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.9ms | Allocations: 238)
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.7ms | Allocations: 238)
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.0ms | Allocations: 328)
+  Rendered posts/index.html.erb within layouts/application (Duration: 34.9ms | Allocations: 10936)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 763)
+  Rendered layout layouts/application.html.erb (Duration: 40.5ms | Allocations: 14424)
+Completed 200 OK in 42ms (Views: 40.7ms | ActiveRecord: 0.7ms | Allocations: 14669)
+
+
+Started GET "/posts" for ::1 at 2023-11-23 01:30:31 +0300
+  
+SyntaxError (/home/mose/Videos/Rails Projects/nex-blog/app/controllers/posts_controller.rb:47: unterminated string meets end of file
+/home/mose/Videos/Rails Projects/nex-blog/app/controllers/posts_controller.rb:47: syntax error, unexpected end-of-input, expecting '}'):
+  
+app/controllers/posts_controller.rb:47: unterminated string meets end of file
+app/controllers/posts_controller.rb:47: syntax error, unexpected end-of-input, expecting '}'
+Started GET "/posts" for ::1 at 2023-11-23 01:30:44 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:19
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 2.5ms | Allocations: 469)
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.4ms | Allocations: 247)
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.9ms | Allocations: 238)
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 2.3ms | Allocations: 328)
+  Rendered posts/index.html.erb within layouts/application (Duration: 87.5ms | Allocations: 19353)
+  Rendered layouts/_navbar.html.erb (Duration: 2.7ms | Allocations: 1030)
+  Rendered layout layouts/application.html.erb (Duration: 128.4ms | Allocations: 37949)
+Completed 200 OK in 139ms (Views: 124.0ms | ActiveRecord: 6.8ms | Allocations: 40896)
+
+
+Started DELETE "/posts/4" for ::1 at 2023-11-23 01:30:46 +0300
+Processing by PostsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+  [1m[36mActionText::RichText Load (1.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 4], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+  [1m[36mActionText::RichText Destroy (0.1ms)[0m  [1m[31mDELETE FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+  [1m[36mPost Destroy (0.1ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 20ms (ActiveRecord: 6.2ms | Allocations: 6106)
+
+
+Started GET "/posts/4" for ::1 at 2023-11-23 01:30:46 +0300
+Processing by PostsController#show as TURBO_STREAM
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 923)
+
+
+Started GET "/posts" for ::1 at 2023-11-23 01:30:47 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:19
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.8ms | Allocations: 247)
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.0ms | Allocations: 238)
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.3ms | Allocations: 238)
+  Rendered posts/index.html.erb within layouts/application (Duration: 31.7ms | Allocations: 9276)
+  Rendered layouts/_navbar.html.erb (Duration: 2.1ms | Allocations: 763)
+  Rendered layout layouts/application.html.erb (Duration: 39.4ms | Allocations: 12772)
+Completed 200 OK in 41ms (Views: 39.7ms | ActiveRecord: 0.6ms | Allocations: 13018)
+
+
+Started DELETE "/posts/3" for ::1 at 2023-11-23 01:31:35 +0300
+Processing by PostsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+  [1m[36mActionText::RichText Load (2.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 3], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+  [1m[36mActionText::RichText Destroy (0.2ms)[0m  [1m[31mDELETE FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+  [1m[36mPost Destroy (0.2ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+Redirected to http://localhost:3000/
+Completed 302 Found in 47ms (ActiveRecord: 12.3ms | Allocations: 14565)
+
+
+Started GET "/" for ::1 at 2023-11-23 01:31:35 +0300
+Processing by PostsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:19
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 2.0ms | Allocations: 470)
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.7ms | Allocations: 247)
+  Rendered posts/index.html.erb within layouts/application (Duration: 34.0ms | Allocations: 9295)
+  Rendered layouts/_navbar.html.erb (Duration: 2.8ms | Allocations: 1027)
+  Rendered layout layouts/application.html.erb (Duration: 66.2ms | Allocations: 27916)
+Completed 200 OK in 71ms (Views: 68.7ms | ActiveRecord: 0.7ms | Allocations: 28938)
+
+
+Started DELETE "/posts/2" for ::1 at 2023-11-23 01:31:37 +0300
+Processing by PostsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+  [1m[36mActionText::RichText Load (1.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 2], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+  [1m[36mActionText::RichText Destroy (0.2ms)[0m  [1m[31mDELETE FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+  [1m[36mPost Destroy (0.1ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+Redirected to http://localhost:3000/
+Completed 302 Found in 15ms (ActiveRecord: 1.9ms | Allocations: 5371)
+
+
+Started GET "/" for ::1 at 2023-11-23 01:31:37 +0300
+Processing by PostsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:19
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.5ms | Allocations: 247)
+  Rendered posts/index.html.erb within layouts/application (Duration: 10.5ms | Allocations: 6124)
+  Rendered layouts/_navbar.html.erb (Duration: 1.6ms | Allocations: 760)
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 9597)
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.3ms | Allocations: 9846)
+
+
+Started DELETE "/posts/1" for ::1 at 2023-11-23 01:31:38 +0300
+Processing by PostsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+  [1m[36mActionText::RichText Load (1.6ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 1], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+  [1m[36mActionText::RichText Destroy (0.2ms)[0m  [1m[31mDELETE FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+  [1m[36mPost Destroy (0.2ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+Redirected to http://localhost:3000/
+Completed 302 Found in 25ms (ActiveRecord: 2.6ms | Allocations: 5363)
+
+
+Started GET "/" for ::1 at 2023-11-23 01:31:38 +0300
+Processing by PostsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 9.2ms | Allocations: 4528)
+  Rendered layouts/_navbar.html.erb (Duration: 2.1ms | Allocations: 760)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 7993)
+Completed 200 OK in 21ms (Views: 20.6ms | ActiveRecord: 0.2ms | Allocations: 8242)
+
+
+Started GET "/" for ::1 at 2023-11-23 01:31:38 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 12.3ms | Allocations: 4537)
+  Rendered layouts/_navbar.html.erb (Duration: 1.7ms | Allocations: 760)
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | Allocations: 8016)
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.2ms | Allocations: 8260)
+
+
+Started GET "/" for ::1 at 2023-11-23 01:31:39 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16:in `current_user'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 12.0ms | Allocations: 4523)
+  Rendered layouts/_navbar.html.erb (Duration: 1.6ms | Allocations: 760)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 7988)
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.2ms | Allocations: 8232)
+
+

@@ -21,6 +21,8 @@
         <%= link_to post.title, post %>
     </h2>
     <p>
-        <%= post.content.to_plain_text %>
+        <%= post.content %>
     </p>
+
+    <%= button_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>

@@ -14525,3 +14525,39 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 17ms (Views: 16.5ms | ActiveRecord: 0.2ms | Allocations: 6801)
 
 
+Started GET "/" for ::1 at 2023-11-23 01:33:28 +0300
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:19
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:24
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.4ms | Allocations: 379)
+  Rendered posts/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 3127)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 712)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 6544)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.2ms | Allocations: 6789)
+
+
+Started GET "/users/new" for ::1 at 2023-11-23 01:33:30 +0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 8.3ms | Allocations: 991)
+  Rendered users/new.html.erb within layouts/application (Duration: 8.9ms | Allocations: 1063)
+  Rendered layouts/_navbar.html.erb (Duration: 2.0ms | Allocations: 711)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 4698)
+Completed 200 OK in 20ms (Views: 19.7ms | ActiveRecord: 0.0ms | Allocations: 4957)
+
+
+Started GET "/sessions/new" for ::1 at 2023-11-23 01:33:34 +0300
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 528)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 713)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 4165)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.0ms | Allocations: 4424)
+
+

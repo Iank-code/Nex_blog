@@ -56,14 +56,10 @@ class ApplicationController < ActionController::Base
 
 
     def authenticate_user!
-
         respond_to do |format|
             if !current_user
             format.html { redirect_to root_path, notice: "You aren't signed in or signed up" }
         end
-        
-
-        
     end
   end
 end

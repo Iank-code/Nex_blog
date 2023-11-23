@@ -16831,3 +16831,100 @@ Processing by PostsController#index as TURBO_STREAM
 Completed 200 OK in 35ms (Views: 31.8ms | ActiveRecord: 0.4ms | Allocations: 10600)
 
 
+Started GET "/posts/1" for ::1 at 2023-11-23 16:09:29 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:2
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.2ms | Allocations: 229)
+  Rendered posts/show.html.erb within layouts/application (Duration: 7.0ms | Allocations: 1601)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 764)
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 5285)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.2ms | Allocations: 5995)
+
+
+Started DELETE "/posts/1" for ::1 at 2023-11-23 16:09:32 +0300
+Processing by PostsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:32:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:33:in `destroy'
+  [1m[36mActionText::RichText Load (1.6ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:33:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 1], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/posts_controller.rb:33:in `destroy'
+  [1m[36mActionText::RichText Destroy (0.1ms)[0m  [1m[31mDELETE FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/posts_controller.rb:33:in `destroy'
+  [1m[36mPost Destroy (0.1ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/posts_controller.rb:33:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:33:in `destroy'
+Redirected to http://localhost:3000/
+Completed 302 Found in 16ms (ActiveRecord: 2.3ms | Allocations: 4875)
+
+
+Started GET "/" for ::1 at 2023-11-23 16:09:33 +0300
+Processing by PostsController#index as TURBO_STREAM
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:25
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.6ms | Allocations: 238)
+  Rendered posts/index.html.erb within layouts/application (Duration: 9.3ms | Allocations: 4931)
+  Rendered layouts/_navbar.html.erb (Duration: 1.3ms | Allocations: 764)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 8400)
+Completed 200 OK in 19ms (Views: 16.9ms | ActiveRecord: 0.2ms | Allocations: 9147)
+
+
+Started GET "/" for ::1 at 2023-11-23 16:09:38 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:25
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.6ms | Allocations: 238)
+  Rendered posts/index.html.erb within layouts/application (Duration: 9.5ms | Allocations: 4927)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 764)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 8407)
+Completed 200 OK in 20ms (Views: 17.1ms | ActiveRecord: 0.2ms | Allocations: 9151)
+
+
+Started GET "/" for ::1 at 2023-11-23 16:09:39 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:25
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.7ms | Allocations: 238)
+  Rendered posts/index.html.erb within layouts/application (Duration: 19.5ms | Allocations: 4927)
+  Rendered layouts/_navbar.html.erb (Duration: 4.3ms | Allocations: 764)
+  Rendered layout layouts/application.html.erb (Duration: 34.9ms | Allocations: 8396)
+Completed 200 OK in 42ms (Views: 37.7ms | ActiveRecord: 0.3ms | Allocations: 9140)
+
+
+Started GET "/" for ::1 at 2023-11-23 16:09:40 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:25
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.2ms | Allocations: 238)
+  Rendered posts/index.html.erb within layouts/application (Duration: 14.7ms | Allocations: 4927)
+  Rendered layouts/_navbar.html.erb (Duration: 1.8ms | Allocations: 764)
+  Rendered layout layouts/application.html.erb (Duration: 23.6ms | Allocations: 8396)
+Completed 200 OK in 27ms (Views: 24.3ms | ActiveRecord: 0.3ms | Allocations: 9140)
+
+

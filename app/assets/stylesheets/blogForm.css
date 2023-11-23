@@ -22,11 +22,15 @@ input {
   align-items: center;
   gap: 10px;
 }
-.content img{
+.content img:nth-last-child(){
   width: 900px;
 }
 
 .content .user-name{
   margin-bottom: 10px;
   cursor: pointer;
+}
+
+.profile-image{
+  width: 100px;
 }

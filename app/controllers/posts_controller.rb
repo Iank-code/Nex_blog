@@ -9,6 +9,10 @@ class PostsController < ApplicationController
     def show
         @post = Post.find(params[:id])
         @user = User.find(@post.user_id)
+        @img = ActiveStorage::Blob.find(@user.id)
+        @service_img = url_for(@img)
+
+        puts @service_img
         @post
     end
 

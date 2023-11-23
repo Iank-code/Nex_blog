@@ -16,13 +16,14 @@
 
 
 
-<% @posts.each do |post| %>
-    <h2>
-        <%= link_to post.title, post %>
-    </h2>
-    <p>
-        <%= post.content %>
-    </p>
+<div class="blogForm">
+    <% @posts.each do |post| %>
+        <h2>
+            <%= link_to post.title, post %>
+        </h2>
+        <p>
+            <%= post.content %>
+        </p>
 
-    <%= button_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
+    <% end %>
+</div>

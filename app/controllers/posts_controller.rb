@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
     # before_action only:[:index, :show, :edit, :update, :destroy]
-    before_action :authenticate_user, except: [:index, :show]
+    # before_action :authenticate_user, except: [:index, :show]
 
     def index
-        @posts = Post.all
+        @posts = Post.all.reverse
     end
 
     def show
@@ -16,10 +16,11 @@ class PostsController < ApplicationController
     end
 
     def create
-        @post = Post.new(title: params[:title], content: params[:content])
-        # @post.user = current_user
+        @user = session[:user_id]
+        @post = Post.new(title: params[:title], content: params[:content], user_id: @user)
         respond_to do | format |
             if @post.save
+                puts @post
                 format.html { redirect_to post_path notice: 'Post was successfully created.'}  
             else
                 format.html { render :new, status: :unprocessable_entity}

@@ -1,5 +1,11 @@
 <h1><%= @post.title %></h1>
 <p><%= @post.content %></p>
+<p><%= @post.user_id %></p>
+<p><%= session[:user_id] %></p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<% if @post.user_id == session[:user_id]  %>
+    <%= link_to 'Edit', edit_post_path(@post) %> |
+    <%= button_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end%>
+
 <%= link_to 'Back', posts_path %>

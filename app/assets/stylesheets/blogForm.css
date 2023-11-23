@@ -13,3 +13,20 @@ input {
   display: flex;
   flex-direction: column;
 }
+
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.content img{
+  width: 900px;
+}
+
+.content .user-name{
+  margin-bottom: 10px;
+  cursor: pointer;
+}

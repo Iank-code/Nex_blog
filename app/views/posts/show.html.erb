@@ -1,7 +1,14 @@
-<h1><%= @post.title %></h1>
-<p><%= @post.content %></p>
-<p><%= @post.user_id %></p>
-<p><%= session[:user_id] %></p>
+<%= stylesheet_link_tag 'blogForm.css' %>
+
+
+<div class="content">
+    <span class="user-name">
+        Written by <%= @user.name %>
+    </span>
+    <%= @post.title %>
+    <%= @post.content %>
+</div>
+
 
 <% if @post.user_id == session[:user_id]  %>
     <%= link_to 'Edit', edit_post_path(@post) %> |

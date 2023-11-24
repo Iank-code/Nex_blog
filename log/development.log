@@ -26034,3 +26034,1096 @@ Processing by UsersController#new as TURBO_STREAM
 Completed 200 OK in 22ms (Views: 21.4ms | ActiveRecord: 0.0ms | Allocations: 5209)
 
 
+Started POST "/users" for ::1 at 2023-11-24 21:59:10 +0300
+  
+NameError (uninitialized constant UsersController::Sidekiq):
+  
+app/controllers/users_controller.rb:2:in `<class:UsersController>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started GET "/users/new" for ::1 at 2023-11-24 21:59:21 +0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 5.5ms | Allocations: 1871)
+  Rendered users/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2170)
+  Rendered layouts/_navbar.html.erb (Duration: 3.8ms | Allocations: 989)
+  Rendered layout layouts/application.html.erb (Duration: 40.6ms | Allocations: 20945)
+Completed 200 OK in 63ms (Views: 43.3ms | ActiveRecord: 0.0ms | Allocations: 28981)
+
+
+Started POST "/users" for ::1 at 2023-11-24 21:59:35 +0300
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ceoian", "email"=>"ceoian848@gmail.com", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x00007f2bf4a1ad98 @tempfile=#<Tempfile:/tmp/RackMultipart20231124-174505-o128dv.png>, @content_type="image/png", @original_filename="Screenshot from 2023-11-17 14-42-54.png", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"Screenshot from 2023-11-17 14-42-54.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Create (2.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "ceoian"], ["email", "ceoian848@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-11-24 18:59:35.904201"], ["updated_at", "2023-11-24 18:59:35.904201"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["key", "42msn0dd9gubtr29cdx004wk7tok"], ["filename", "Screenshot from 2023-11-17 14-42-54.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 191032], ["checksum", "VEozjA5sG4JNCs4elEmiFw=="], ["created_at", "2023-11-24 18:59:35.932889"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Attachment Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "avatar"], ["record_type", "User"], ["record_id", 2], ["blob_id", 6], ["created_at", "2023-11-24 18:59:35.937390"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-11-24 18:59:35.940963"], ["id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+[36m  Disk Storage (1.7ms) [0m[32mUploaded file to key: 42msn0dd9gubtr29cdx004wk7tok (checksum: VEozjA5sG4JNCs4elEmiFw==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: c25fd488-f902-47f8-9ec5-150e603ea992) to Async(default) with arguments: #<GlobalID:0x00007f2c1804cc98 @uri=#<URI::GID gid://nex-blog/ActiveStorage::Blob/6>>
+[ActiveJob] ↳ app/controllers/users_controller.rb:11:in `create'
+[ActiveJob] Enqueued SendWelcomeEmailJob (Job ID: 360c3c2a-95f7-43e2-9dcd-bd748a16283c) to Async(default)
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c25fd488-f902-47f8-9ec5-150e603ea992]   [1m[36mActiveStorage::Blob Load (1.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c25fd488-f902-47f8-9ec5-150e603ea992] Performing ActiveStorage::AnalyzeJob (Job ID: c25fd488-f902-47f8-9ec5-150e603ea992) from Async(default) enqueued at 2023-11-24T18:59:35.956209520Z with arguments: #<GlobalID:0x00007f2c34fba088 @uri=#<URI::GID gid://nex-blog/ActiveStorage::Blob/6>>
+[ActiveJob] [SendWelcomeEmailJob] [360c3c2a-95f7-43e2-9dcd-bd748a16283c] Performing SendWelcomeEmailJob (Job ID: 360c3c2a-95f7-43e2-9dcd-bd748a16283c) from Async(default) enqueued at 2023-11-24T18:59:35.961078181Z
+[ActiveJob] ↳ app/controllers/users_controller.rb:13:in `create'
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c25fd488-f902-47f8-9ec5-150e603ea992] [36m  Disk Storage (0.6ms) [0m[34mDownloaded file from key: 42msn0dd9gubtr29cdx004wk7tok[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 393ms (ActiveRecord: 9.9ms | Allocations: 34806)
+
+
+[ActiveJob] [SendWelcomeEmailJob] [360c3c2a-95f7-43e2-9dcd-bd748a16283c] Error performing SendWelcomeEmailJob (Job ID: 360c3c2a-95f7-43e2-9dcd-bd748a16283c) from Async(default) in 21.07ms: NoMethodError (undefined method `email' for nil:NilClass):
+/home/mose/Videos/Rails Projects/nex-blog/app/jobs/send_welcome_email_job.rb:6:in `perform'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/execution.rb:69:in `block in _perform_job'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/share/rvm/gems/ruby-2.7.4/gems/i18n-1.14.1/lib/i18n.rb:322:in `with_locale'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/callbacks.rb:130:in `instance_exec'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/core_ext/time/zones.rb:65:in `use_zone'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/timezones.rb:9:in `block (2 levels) in <module:Timezones>'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/callbacks.rb:130:in `instance_exec'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/callbacks.rb:141:in `run_callbacks'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/execution.rb:68:in `_perform_job'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/instrumentation.rb:32:in `_perform_job'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/execution.rb:52:in `perform_now'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/instrumentation.rb:26:in `block in perform_now'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activerecord-7.1.2/lib/active_record/railties/job_runtime.rb:13:in `block in instrument'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/instrumentation.rb:40:in `block in instrument'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/notifications.rb:206:in `block in instrument'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/notifications.rb:206:in `instrument'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/instrumentation.rb:39:in `instrument'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activerecord-7.1.2/lib/active_record/railties/job_runtime.rb:11:in `instrument'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/instrumentation.rb:26:in `perform_now'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/logging.rb:18:in `block in perform_now'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/tagged_logging.rb:135:in `block in tagged'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/tagged_logging.rb:39:in `tagged'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/tagged_logging.rb:135:in `tagged'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/broadcast_logger.rb:240:in `method_missing'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/logging.rb:25:in `tag_logger'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/logging.rb:18:in `perform_now'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/execution.rb:30:in `block in execute'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/railtie.rb:67:in `block (4 levels) in <class:Railtie>'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/reloader.rb:77:in `block in wrap'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/execution_wrapper.rb:92:in `wrap'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/reloader.rb:74:in `wrap'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/railtie.rb:66:in `block (3 levels) in <class:Railtie>'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/callbacks.rb:130:in `instance_exec'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/callbacks.rb:141:in `run_callbacks'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/execution.rb:28:in `execute'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+/usr/share/rvm/gems/ruby-2.7.4/gems/concurrent-ruby-1.2.2/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+/usr/share/rvm/gems/ruby-2.7.4/gems/concurrent-ruby-1.2.2/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+/usr/share/rvm/gems/ruby-2.7.4/gems/concurrent-ruby-1.2.2/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+/usr/share/rvm/gems/ruby-2.7.4/gems/concurrent-ruby-1.2.2/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+/usr/share/rvm/gems/ruby-2.7.4/gems/concurrent-ruby-1.2.2/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+/usr/share/rvm/gems/ruby-2.7.4/gems/concurrent-ruby-1.2.2/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+Started GET "/" for ::1 at 2023-11-24 21:59:35 +0300
+Processing by PostsController#index as TURBO_STREAM
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 16.7ms | Allocations: 4460)
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c25fd488-f902-47f8-9ec5-150e603ea992]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c25fd488-f902-47f8-9ec5-150e603ea992]   [1m[36mActiveStorage::Blob Update (1.4ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"width\":1600,\"height\":900,\"analyzed\":true}"], ["id", 6]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c25fd488-f902-47f8-9ec5-150e603ea992]   [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ?[0m  [["blob_id", 6]]
+  Rendered layouts/_navbar.html.erb (Duration: 22.1ms | Allocations: 4864)
+  Rendered layout layouts/application.html.erb (Duration: 67.2ms | Allocations: 12095)
+Completed 200 OK in 97ms (Views: 68.2ms | ActiveRecord: 0.2ms | Allocations: 16382)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c25fd488-f902-47f8-9ec5-150e603ea992]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c25fd488-f902-47f8-9ec5-150e603ea992]   [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-11-24 18:59:36.126503"], ["id", 2]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c25fd488-f902-47f8-9ec5-150e603ea992]   [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c25fd488-f902-47f8-9ec5-150e603ea992] Performed ActiveStorage::AnalyzeJob (Job ID: c25fd488-f902-47f8-9ec5-150e603ea992) from Async(default) in 166.5ms
+Started DELETE "/signout" for ::1 at 2023-11-24 22:01:03 +0300
+Processing by SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 367)
+
+
+Started GET "/" for ::1 at 2023-11-24 22:01:03 +0300
+Processing by PostsController#index as TURBO_STREAM
+Redirected to http://localhost:3000/users/new
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 279)
+
+
+Started GET "/users/new" for ::1 at 2023-11-24 22:01:04 +0300
+Processing by UsersController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 9.9ms | Allocations: 1866)
+  Rendered users/new.html.erb within layouts/application (Duration: 12.2ms | Allocations: 2211)
+  Rendered layouts/_navbar.html.erb (Duration: 5.5ms | Allocations: 985)
+  Rendered layout layouts/application.html.erb (Duration: 89.5ms | Allocations: 20869)
+Completed 200 OK in 142ms (Views: 92.1ms | ActiveRecord: 8.0ms | Allocations: 29564)
+
+
+Started POST "/users" for ::1 at 2023-11-24 22:01:24 +0300
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ceoian", "email"=>"ceoian848@gmail.com", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x00007f2c35194d90 @tempfile=#<Tempfile:/tmp/RackMultipart20231124-174505-ilpwr1.png>, @content_type="image/png", @original_filename="apple-logo.png", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"apple-logo.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "ceoian"], ["email", "ceoian848@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-11-24 19:01:24.941529"], ["updated_at", "2023-11-24 19:01:24.941529"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["key", "tnhrzyxjm0ivki0yrzr1hqlchzbb"], ["filename", "apple-logo.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 3160], ["checksum", "rReo1ttH1hXyf5OAn4r29Q=="], ["created_at", "2023-11-24 19:01:24.970801"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "avatar"], ["record_type", "User"], ["record_id", 3], ["blob_id", 7], ["created_at", "2023-11-24 19:01:24.975549"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-11-24 19:01:24.978867"], ["id", 3]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+[36m  Disk Storage (0.5ms) [0m[32mUploaded file to key: tnhrzyxjm0ivki0yrzr1hqlchzbb (checksum: rReo1ttH1hXyf5OAn4r29Q==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: a66014b9-476d-4764-8cca-06bb4f61d8a1) to Async(default) with arguments: #<GlobalID:0x00007f2c38d1cbb0 @uri=#<URI::GID gid://nex-blog/ActiveStorage::Blob/7>>
+[ActiveJob] ↳ app/controllers/users_controller.rb:11:in `create'
+[ActiveJob] Enqueued SendWelcomeEmailJob (Job ID: e7cb60fa-69ca-4b63-85e1-7ceffeaf2ae4) to Async(default) at 2023-11-24 19:02:25 UTC
+[ActiveJob] ↳ app/controllers/users_controller.rb:13:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 437ms (ActiveRecord: 11.8ms | Allocations: 32945)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a66014b9-476d-4764-8cca-06bb4f61d8a1]   [1m[36mActiveStorage::Blob Load (6.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Started GET "/" for ::1 at 2023-11-24 22:01:25 +0300
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a66014b9-476d-4764-8cca-06bb4f61d8a1] Performing ActiveStorage::AnalyzeJob (Job ID: a66014b9-476d-4764-8cca-06bb4f61d8a1) from Async(default) enqueued at 2023-11-24T19:01:24.996405601Z with arguments: #<GlobalID:0x00007f2c38f8e790 @uri=#<URI::GID gid://nex-blog/ActiveStorage::Blob/7>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a66014b9-476d-4764-8cca-06bb4f61d8a1] [36m  Disk Storage (0.2ms) [0m[34mDownloaded file from key: tnhrzyxjm0ivki0yrzr1hqlchzbb[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a66014b9-476d-4764-8cca-06bb4f61d8a1]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a66014b9-476d-4764-8cca-06bb4f61d8a1]   [1m[36mActiveStorage::Blob Update (1.7ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"width\":225,\"height\":225,\"analyzed\":true}"], ["id", 7]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a66014b9-476d-4764-8cca-06bb4f61d8a1]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ?[0m  [["blob_id", 7]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a66014b9-476d-4764-8cca-06bb4f61d8a1]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+Processing by PostsController#index as TURBO_STREAM
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a66014b9-476d-4764-8cca-06bb4f61d8a1]   [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-11-24 19:01:25.059788"], ["id", 3]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a66014b9-476d-4764-8cca-06bb4f61d8a1]   [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a66014b9-476d-4764-8cca-06bb4f61d8a1] Performed ActiveStorage::AnalyzeJob (Job ID: a66014b9-476d-4764-8cca-06bb4f61d8a1) from Async(default) in 70.85ms
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 24.7ms | Allocations: 4467)
+  Rendered layouts/_navbar.html.erb (Duration: 3.3ms | Allocations: 786)
+  Rendered layout layouts/application.html.erb (Duration: 39.6ms | Allocations: 7997)
+Completed 200 OK in 66ms (Views: 42.4ms | ActiveRecord: 0.4ms | Allocations: 13818)
+
+
+[ActiveJob] [SendWelcomeEmailJob] [e7cb60fa-69ca-4b63-85e1-7ceffeaf2ae4] Performing SendWelcomeEmailJob (Job ID: e7cb60fa-69ca-4b63-85e1-7ceffeaf2ae4) from Async(default) enqueued at 2023-11-24T19:01:25.003450119Z
+[ActiveJob] [SendWelcomeEmailJob] [e7cb60fa-69ca-4b63-85e1-7ceffeaf2ae4] Error performing SendWelcomeEmailJob (Job ID: e7cb60fa-69ca-4b63-85e1-7ceffeaf2ae4) from Async(default) in 15.49ms: NoMethodError (undefined method `email' for nil:NilClass):
+/home/mose/Videos/Rails Projects/nex-blog/app/jobs/send_welcome_email_job.rb:6:in `perform'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/execution.rb:69:in `block in _perform_job'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/share/rvm/gems/ruby-2.7.4/gems/i18n-1.14.1/lib/i18n.rb:322:in `with_locale'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/callbacks.rb:130:in `instance_exec'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/core_ext/time/zones.rb:65:in `use_zone'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/timezones.rb:9:in `block (2 levels) in <module:Timezones>'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/callbacks.rb:130:in `instance_exec'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/callbacks.rb:141:in `run_callbacks'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/execution.rb:68:in `_perform_job'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/instrumentation.rb:32:in `_perform_job'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/execution.rb:52:in `perform_now'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/instrumentation.rb:26:in `block in perform_now'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activerecord-7.1.2/lib/active_record/railties/job_runtime.rb:13:in `block in instrument'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/instrumentation.rb:40:in `block in instrument'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/notifications.rb:206:in `block in instrument'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/notifications.rb:206:in `instrument'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/instrumentation.rb:39:in `instrument'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activerecord-7.1.2/lib/active_record/railties/job_runtime.rb:11:in `instrument'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/instrumentation.rb:26:in `perform_now'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/logging.rb:18:in `block in perform_now'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/tagged_logging.rb:135:in `block in tagged'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/tagged_logging.rb:39:in `tagged'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/tagged_logging.rb:135:in `tagged'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/broadcast_logger.rb:240:in `method_missing'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/logging.rb:25:in `tag_logger'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/logging.rb:18:in `perform_now'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/execution.rb:30:in `block in execute'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/railtie.rb:67:in `block (4 levels) in <class:Railtie>'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/reloader.rb:77:in `block in wrap'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/execution_wrapper.rb:92:in `wrap'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/reloader.rb:74:in `wrap'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/railtie.rb:66:in `block (3 levels) in <class:Railtie>'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/callbacks.rb:130:in `instance_exec'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activesupport-7.1.2/lib/active_support/callbacks.rb:141:in `run_callbacks'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/execution.rb:28:in `execute'
+/usr/share/rvm/gems/ruby-2.7.4/gems/activejob-7.1.2/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+/usr/share/rvm/gems/ruby-2.7.4/gems/concurrent-ruby-1.2.2/lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+/usr/share/rvm/gems/ruby-2.7.4/gems/concurrent-ruby-1.2.2/lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `block in synchronize'
+/usr/share/rvm/gems/ruby-2.7.4/gems/concurrent-ruby-1.2.2/lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+/usr/share/rvm/gems/ruby-2.7.4/gems/concurrent-ruby-1.2.2/lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+/usr/share/rvm/gems/ruby-2.7.4/gems/concurrent-ruby-1.2.2/lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+/usr/share/rvm/gems/ruby-2.7.4/gems/concurrent-ruby-1.2.2/lib/concurrent-ruby/concurrent/ivar.rb:170:in `safe_execute'
+/usr/share/rvm/gems/ruby-2.7.4/gems/concurrent-ruby-1.2.2/lib/concurrent-ruby/concurrent/scheduled_task.rb:298:in `process_task'
+/usr/share/rvm/gems/ruby-2.7.4/gems/concurrent-ruby-1.2.2/lib/concurrent-ruby/concurrent/executor/timer_set.rb:165:in `block (2 levels) in process_tasks'
+/usr/share/rvm/gems/ruby-2.7.4/gems/concurrent-ruby-1.2.2/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+/usr/share/rvm/gems/ruby-2.7.4/gems/concurrent-ruby-1.2.2/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+/usr/share/rvm/gems/ruby-2.7.4/gems/concurrent-ruby-1.2.2/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+/usr/share/rvm/gems/ruby-2.7.4/gems/concurrent-ruby-1.2.2/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+/usr/share/rvm/gems/ruby-2.7.4/gems/concurrent-ruby-1.2.2/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+/usr/share/rvm/gems/ruby-2.7.4/gems/concurrent-ruby-1.2.2/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "action_text_rich_texts"[0m
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE TABLE "action_text_rich_texts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "body" text, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_action_text_rich_texts_uniqueness" ON "action_text_rich_texts" ("record_type", "record_id", "name")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_variant_records"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.5ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_attachments_uniqueness" ON "aactive_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aactive_storage_attachments_on_blob_id" ON "aactive_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aactive_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "active_storage_attachments"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "active_storage_attachments"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "aactive_storage_attachments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "aactive_storage_attachments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_variant_records_uniqueness" ON "aactive_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aactive_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "active_storage_variant_records"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "active_storage_variant_records"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "aactive_storage_variant_records"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "aactive_storage_variant_records"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aposts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "content" text DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aposts_on_user_id" ON "aposts" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aposts" ("id","title","content","user_id","created_at","updated_at")
+                     SELECT "id","title","content","user_id","created_at","updated_at" FROM "posts"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "posts"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "content" text DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("id","title","content","user_id","created_at","updated_at")
+                     SELECT "id","title","content","user_id","created_at","updated_at" FROM "aposts"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "aposts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231122132234)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20231122125833),
+(20231122125832),
+(20231122125708);[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-24 19:04:26.865135', '2023-11-24 19:04:26.865141') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'da621d0b8fae7d2fef189733a6c19886fca1021f', '2023-11-24 19:04:26.869840', '2023-11-24 19:04:26.869847') RETURNING "key"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "action_text_rich_texts"[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "action_text_rich_texts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "body" text, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_action_text_rich_texts_uniqueness" ON "action_text_rich_texts" ("record_type", "record_id", "name")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_variant_records"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_attachments_uniqueness" ON "aactive_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aactive_storage_attachments_on_blob_id" ON "aactive_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aactive_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "active_storage_attachments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "active_storage_attachments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "aactive_storage_attachments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aactive_storage_attachments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_variant_records_uniqueness" ON "aactive_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aactive_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "active_storage_variant_records"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "active_storage_variant_records"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "aactive_storage_variant_records"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aactive_storage_variant_records"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aposts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "content" text DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aposts_on_user_id" ON "aposts" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aposts" ("id","title","content","user_id","created_at","updated_at")
+                     SELECT "id","title","content","user_id","created_at","updated_at" FROM "posts"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "posts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "content" text DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("id","title","content","user_id","created_at","updated_at")
+                     SELECT "id","title","content","user_id","created_at","updated_at" FROM "aposts"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "aposts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231122132234)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20231122125833),
+(20231122125832),
+(20231122125708);[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-24 19:04:26.990550', '2023-11-24 19:04:26.990553') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2023-11-24 19:04:26.993114' WHERE "ar_internal_metadata"."key" = 'environment'[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'da621d0b8fae7d2fef189733a6c19886fca1021f', '2023-11-24 19:04:26.996504', '2023-11-24 19:04:26.996509') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started DELETE "/signout" for ::1 at 2023-11-24 22:04:30 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms | Allocations: 2081)
+
+
+Started GET "/" for ::1 at 2023-11-24 22:04:30 +0300
+Processing by PostsController#index as TURBO_STREAM
+Redirected to http://localhost:3000/users/new
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 298)
+
+
+Started GET "/users/new" for ::1 at 2023-11-24 22:04:30 +0300
+Processing by UsersController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 17.3ms | Allocations: 3156)
+  Rendered users/new.html.erb within layouts/application (Duration: 19.4ms | Allocations: 3616)
+  Rendered layouts/_navbar.html.erb (Duration: 2.3ms | Allocations: 1017)
+  Rendered layout layouts/application.html.erb (Duration: 224.4ms | Allocations: 46090)
+Completed 200 OK in 328ms (Views: 229.9ms | ActiveRecord: 3.9ms | Allocations: 150649)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "action_text_rich_texts"[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "action_text_rich_texts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "body" text, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_action_text_rich_texts_uniqueness" ON "action_text_rich_texts" ("record_type", "record_id", "name")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs"[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_variant_records"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_attachments_uniqueness" ON "aactive_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "tindex_aactive_storage_attachments_on_blob_id" ON "aactive_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aactive_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "active_storage_attachments"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "active_storage_attachments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "aactive_storage_attachments"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "aactive_storage_attachments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_variant_records_uniqueness" ON "aactive_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aactive_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "active_storage_variant_records"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "active_storage_variant_records"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "aactive_storage_variant_records"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "aactive_storage_variant_records"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.7ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aposts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "content" text DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aposts_on_user_id" ON "aposts" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aposts" ("id","title","content","user_id","created_at","updated_at")
+                     SELECT "id","title","content","user_id","created_at","updated_at" FROM "posts"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "posts"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "content" text DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("id","title","content","user_id","created_at","updated_at")
+                     SELECT "id","title","content","user_id","created_at","updated_at" FROM "aposts"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "aposts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231122132234)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20231122125833),
+(20231122125832),
+(20231122125708);[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-24 19:04:35.562613', '2023-11-24 19:04:35.562620') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'da621d0b8fae7d2fef189733a6c19886fca1021f', '2023-11-24 19:04:35.577050', '2023-11-24 19:04:35.577055') RETURNING "key"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "action_text_rich_texts"[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "action_text_rich_texts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "body" text, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_action_text_rich_texts_uniqueness" ON "action_text_rich_texts" ("record_type", "record_id", "name")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_variant_records"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_attachments_uniqueness" ON "aactive_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aactive_storage_attachments_on_blob_id" ON "aactive_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aactive_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "active_storage_attachments"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "active_storage_attachments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (4.7ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "aactive_storage_attachments"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "aactive_storage_attachments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.7ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_variant_records_uniqueness" ON "aactive_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aactive_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "active_storage_variant_records"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "active_storage_variant_records"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "aactive_storage_variant_records"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "aactive_storage_variant_records"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.7ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aposts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "content" text DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aposts_on_user_id" ON "aposts" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aposts" ("id","title","content","user_id","created_at","updated_at")
+                     SELECT "id","title","content","user_id","created_at","updated_at" FROM "posts"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "posts"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "content" text DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("id","title","content","user_id","created_at","updated_at")
+                     SELECT "id","title","content","user_id","created_at","updated_at" FROM "aposts"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "aposts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231122132234)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20231122125833),
+(20231122125832),
+(20231122125708);[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-24 19:04:35.794005', '2023-11-24 19:04:35.794008') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2023-11-24 19:04:35.796027' WHERE "ar_internal_metadata"."key" = 'environment'[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'da621d0b8fae7d2fef189733a6c19886fca1021f', '2023-11-24 19:04:35.798757', '2023-11-24 19:04:35.798759') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/users" for ::1 at 2023-11-24 22:05:07 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ceoian", "email"=>"ceoian848@gmail.com", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x00007fe874719260 @tempfile=#<Tempfile:/tmp/RackMultipart20231124-184073-orqs57.png>, @content_type="image/png", @original_filename="laura.png", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"laura.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Create (2.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "ceoian"], ["email", "ceoian848@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-11-24 19:05:08.548521"], ["updated_at", "2023-11-24 19:05:08.548521"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["key", "x79a9r2qh3vpt8tlxki35vzg4c5v"], ["filename", "laura.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 13042], ["checksum", "BhjDX99O6/cT2sz3d63xVQ=="], ["created_at", "2023-11-24 19:05:08.634305"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "avatar"], ["record_type", "User"], ["record_id", 1], ["blob_id", 1], ["created_at", "2023-11-24 19:05:08.639850"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-11-24 19:05:08.644940"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+[36m  Disk Storage (0.8ms) [0m[32mUploaded file to key: x79a9r2qh3vpt8tlxki35vzg4c5v (checksum: BhjDX99O6/cT2sz3d63xVQ==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 00a4f298-4be0-4b5d-8a35-8d69a346a4cc) to Async(default) with arguments: #<GlobalID:0x00007fe8711fe698 @uri=#<URI::GID gid://nex-blog/ActiveStorage::Blob/1>>
+[ActiveJob] ↳ app/controllers/users_controller.rb:11:in `create'
+[ActiveJob] Enqueued SendWelcomeEmailJob (Job ID: 23924f41-b289-4421-a994-b091ecdabb25) to Async(default) at 2023-11-24 19:05:28 UTC with arguments: #<GlobalID:0x00007fe871220db0 @uri=#<URI::GID gid://nex-blog/User/1>>
+[ActiveJob] ↳ app/controllers/users_controller.rb:13:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 759ms (ActiveRecord: 12.4ms | Allocations: 283259)
+
+
+Started GET "/" for ::1 at 2023-11-24 22:05:08 +0300
+Processing by PostsController#index as TURBO_STREAM
+[ActiveJob] [ActiveStorage::AnalyzeJob] [00a4f298-4be0-4b5d-8a35-8d69a346a4cc]   [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [00a4f298-4be0-4b5d-8a35-8d69a346a4cc] Performing ActiveStorage::AnalyzeJob (Job ID: 00a4f298-4be0-4b5d-8a35-8d69a346a4cc) from Async(default) enqueued at 2023-11-24T19:05:08.724419729Z with arguments: #<GlobalID:0x00007fe83c2d8c38 @uri=#<URI::GID gid://nex-blog/ActiveStorage::Blob/1>>
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 151.8ms | Allocations: 48206)
+[ActiveJob] [ActiveStorage::AnalyzeJob] [00a4f298-4be0-4b5d-8a35-8d69a346a4cc] [36m  Disk Storage (26.2ms) [0m[34mDownloaded file from key: x79a9r2qh3vpt8tlxki35vzg4c5v[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [00a4f298-4be0-4b5d-8a35-8d69a346a4cc]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [00a4f298-4be0-4b5d-8a35-8d69a346a4cc]   [1m[36mActiveStorage::Blob Update (2.0ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"width\":73,\"height\":68,\"analyzed\":true}"], ["id", 1]]
+  Rendered layouts/_navbar.html.erb (Duration: 4.2ms | Allocations: 2787)
+  Rendered layout layouts/application.html.erb (Duration: 237.4ms | Allocations: 75283)
+Completed 200 OK in 317ms (Views: 252.0ms | ActiveRecord: 2.9ms | Allocations: 100511)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [00a4f298-4be0-4b5d-8a35-8d69a346a4cc]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ?[0m  [["blob_id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [00a4f298-4be0-4b5d-8a35-8d69a346a4cc]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [00a4f298-4be0-4b5d-8a35-8d69a346a4cc]   [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-11-24 19:05:09.294141"], ["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [00a4f298-4be0-4b5d-8a35-8d69a346a4cc]   [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [00a4f298-4be0-4b5d-8a35-8d69a346a4cc] Performed ActiveStorage::AnalyzeJob (Job ID: 00a4f298-4be0-4b5d-8a35-8d69a346a4cc) from Async(default) in 421.92ms
+[ActiveJob] [SendWelcomeEmailJob] [23924f41-b289-4421-a994-b091ecdabb25]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [SendWelcomeEmailJob] [23924f41-b289-4421-a994-b091ecdabb25] Performing SendWelcomeEmailJob (Job ID: 23924f41-b289-4421-a994-b091ecdabb25) from Async(default) enqueued at 2023-11-24T19:05:08.729259663Z with arguments: #<GlobalID:0x00007fe871002998 @uri=#<URI::GID gid://nex-blog/User/1>>
+[ActiveJob] [SendWelcomeEmailJob] [23924f41-b289-4421-a994-b091ecdabb25]   Rendering layout layouts/mailer.html.erb
+[ActiveJob] [SendWelcomeEmailJob] [23924f41-b289-4421-a994-b091ecdabb25]   Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+[ActiveJob] [SendWelcomeEmailJob] [23924f41-b289-4421-a994-b091ecdabb25]   Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 0.8ms | Allocations: 154)
+[ActiveJob] [SendWelcomeEmailJob] [23924f41-b289-4421-a994-b091ecdabb25]   Rendered layout layouts/mailer.html.erb (Duration: 2.1ms | Allocations: 391)
+[ActiveJob] [SendWelcomeEmailJob] [23924f41-b289-4421-a994-b091ecdabb25] UserMailer#welcome_email: processed outbound mail in 11.4ms
+[ActiveJob] [SendWelcomeEmailJob] [23924f41-b289-4421-a994-b091ecdabb25] Delivered mail 6560f3f8c4615_2cf096720559c3@mose-pc.mail (3816.6ms)
+[ActiveJob] [SendWelcomeEmailJob] [23924f41-b289-4421-a994-b091ecdabb25] Date: Fri, 24 Nov 2023 22:05:28 +0300
+From: kian99564@gmail.com
+To: ceoian848@gmail.com
+Message-ID: <6560f3f8c4615_2cf096720559c3@mose-pc.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      To login to the site, just follow this link: .
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+[ActiveJob] [SendWelcomeEmailJob] [23924f41-b289-4421-a994-b091ecdabb25] Performed SendWelcomeEmailJob (Job ID: 23924f41-b289-4421-a994-b091ecdabb25) from Async(default) in 3881.96ms
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "action_text_rich_texts"[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "action_text_rich_texts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "body" text, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_action_text_rich_texts_uniqueness" ON "action_text_rich_texts" ("record_type", "record_id", "name")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_variant_records"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_attachments_uniqueness" ON "aactive_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aactive_storage_attachments_on_blob_id" ON "aactive_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "aactive_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "active_storage_attachments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "active_storage_attachments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "aactive_storage_attachments"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "aactive_storage_attachments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.7ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_variant_records_uniqueness" ON "aactive_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aactive_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "active_storage_variant_records"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "active_storage_variant_records"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "aactive_storage_variant_records"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "aactive_storage_variant_records"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aposts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "content" text DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aposts_on_user_id" ON "aposts" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aposts" ("id","title","content","user_id","created_at","updated_at")
+                     SELECT "id","title","content","user_id","created_at","updated_at" FROM "posts"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "posts"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "content" text DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("id","title","content","user_id","created_at","updated_at")
+                     SELECT "id","title","content","user_id","created_at","updated_at" FROM "aposts"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "aposts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231122132234)[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20231122125833),
+(20231122125832),
+(20231122125708);[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-24 19:06:25.380437', '2023-11-24 19:06:25.380443') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'da621d0b8fae7d2fef189733a6c19886fca1021f', '2023-11-24 19:06:25.387389', '2023-11-24 19:06:25.387394') RETURNING "key"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "action_text_rich_texts"[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "action_text_rich_texts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "body" text, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_action_text_rich_texts_uniqueness" ON "action_text_rich_texts" ("record_type", "record_id", "name")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs"[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_variant_records"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_attachments_uniqueness" ON "aactive_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aactive_storage_attachments_on_blob_id" ON "aactive_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aactive_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "active_storage_attachments"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "active_storage_attachments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "aactive_storage_attachments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aactive_storage_attachments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_variant_records_uniqueness" ON "aactive_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aactive_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "active_storage_variant_records"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "active_storage_variant_records"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "aactive_storage_variant_records"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aactive_storage_variant_records"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aposts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "content" text DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aposts_on_user_id" ON "aposts" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aposts" ("id","title","content","user_id","created_at","updated_at")
+                     SELECT "id","title","content","user_id","created_at","updated_at" FROM "posts"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "posts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "content" text DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "posts" ("id","title","content","user_id","created_at","updated_at")
+                     SELECT "id","title","content","user_id","created_at","updated_at" FROM "aposts"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aposts"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231122132234)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20231122125833),
+(20231122125832),
+(20231122125708);[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-24 19:06:25.538575', '2023-11-24 19:06:25.538578') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Update (0.1ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2023-11-24 19:06:25.540382' WHERE "ar_internal_metadata"."key" = 'environment'[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'da621d0b8fae7d2fef189733a6c19886fca1021f', '2023-11-24 19:06:25.541926', '2023-11-24 19:06:25.541928') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started DELETE "/signout" for ::1 at 2023-11-24 22:06:29 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms | Allocations: 2081)
+
+
+Started GET "/" for ::1 at 2023-11-24 22:06:29 +0300
+Processing by PostsController#index as TURBO_STREAM
+Redirected to http://localhost:3000/users/new
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 298)
+
+
+Started GET "/users/new" for ::1 at 2023-11-24 22:06:29 +0300
+Processing by UsersController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 10.7ms | Allocations: 3163)
+  Rendered users/new.html.erb within layouts/application (Duration: 12.1ms | Allocations: 3623)
+  Rendered layouts/_navbar.html.erb (Duration: 2.1ms | Allocations: 1017)
+  Rendered layout layouts/application.html.erb (Duration: 232.8ms | Allocations: 46272)
+Completed 200 OK in 363ms (Views: 237.2ms | ActiveRecord: 8.7ms | Allocations: 150831)
+
+
+Started POST "/users" for ::1 at 2023-11-24 22:06:42 +0300
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ceoian", "email"=>"ceoian848@gmail.com", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x00007f786082d888 @tempfile=#<Tempfile:/tmp/RackMultipart20231124-184583-lo79ag.jpg>, @content_type="image/jpeg", @original_filename="fb.jpg", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"fb.jpg\"\r\nContent-Type: image/jpeg\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "ceoian"], ["email", "ceoian848@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-11-24 19:06:43.347278"], ["updated_at", "2023-11-24 19:06:43.347278"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["key", "9lss5lz1uz92mzqolwx30nec5xcd"], ["filename", "fb.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 78562], ["checksum", "kOO1rkoq52KfKdx0soSnyw=="], ["created_at", "2023-11-24 19:06:43.423193"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Attachment Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "avatar"], ["record_type", "User"], ["record_id", 1], ["blob_id", 1], ["created_at", "2023-11-24 19:06:43.428879"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-11-24 19:06:43.432929"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+[36m  Disk Storage (2.4ms) [0m[32mUploaded file to key: 9lss5lz1uz92mzqolwx30nec5xcd (checksum: kOO1rkoq52KfKdx0soSnyw==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: ff28ed4f-7967-4f89-97bf-9902ec990e11) to Async(default) with arguments: #<GlobalID:0x00007f78507138e0 @uri=#<URI::GID gid://nex-blog/ActiveStorage::Blob/1>>
+[ActiveJob] ↳ app/controllers/users_controller.rb:11:in `create'
+[ActiveJob] Enqueued SendWelcomeEmailJob (Job ID: 766ab92f-7f5b-48e3-977f-7889a6cfaa67) to Async(default) at 2023-11-24 19:07:03 UTC with arguments: #<GlobalID:0x00007f78507347c0 @uri=#<URI::GID gid://nex-blog/User/1>>
+[ActiveJob] ↳ app/controllers/users_controller.rb:13:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 526ms (ActiveRecord: 11.6ms | Allocations: 182460)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ff28ed4f-7967-4f89-97bf-9902ec990e11]   [1m[36mActiveStorage::Blob Load (2.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ff28ed4f-7967-4f89-97bf-9902ec990e11] Performing ActiveStorage::AnalyzeJob (Job ID: ff28ed4f-7967-4f89-97bf-9902ec990e11) from Async(default) enqueued at 2023-11-24T19:06:43.485308247Z with arguments: #<GlobalID:0x00007f782006cc38 @uri=#<URI::GID gid://nex-blog/ActiveStorage::Blob/1>>
+Started GET "/" for ::1 at 2023-11-24 22:06:43 +0300
+Processing by PostsController#index as TURBO_STREAM
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 38.2ms | Allocations: 9785)
+  Rendered layouts/_navbar.html.erb (Duration: 9.0ms | Allocations: 2035)
+  Rendered layout layouts/application.html.erb (Duration: 155.1ms | Allocations: 24329)
+Completed 200 OK in 211ms (Views: 159.6ms | ActiveRecord: 0.4ms | Allocations: 32115)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ff28ed4f-7967-4f89-97bf-9902ec990e11] [36m  Disk Storage (0.3ms) [0m[34mDownloaded file from key: 9lss5lz1uz92mzqolwx30nec5xcd[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ff28ed4f-7967-4f89-97bf-9902ec990e11]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ff28ed4f-7967-4f89-97bf-9902ec990e11]   [1m[36mActiveStorage::Blob Update (2.7ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"width\":478,\"height\":529,\"analyzed\":true}"], ["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ff28ed4f-7967-4f89-97bf-9902ec990e11]   [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ?[0m  [["blob_id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ff28ed4f-7967-4f89-97bf-9902ec990e11]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ff28ed4f-7967-4f89-97bf-9902ec990e11]   [1m[36mUser Update (1.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-11-24 19:06:43.850925"], ["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ff28ed4f-7967-4f89-97bf-9902ec990e11]   [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ff28ed4f-7967-4f89-97bf-9902ec990e11] Performed ActiveStorage::AnalyzeJob (Job ID: ff28ed4f-7967-4f89-97bf-9902ec990e11) from Async(default) in 357.15ms
+[ActiveJob] [SendWelcomeEmailJob] [766ab92f-7f5b-48e3-977f-7889a6cfaa67]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [SendWelcomeEmailJob] [766ab92f-7f5b-48e3-977f-7889a6cfaa67] Performing SendWelcomeEmailJob (Job ID: 766ab92f-7f5b-48e3-977f-7889a6cfaa67) from Async(default) enqueued at 2023-11-24T19:06:43.505555765Z with arguments: #<GlobalID:0x00007f782059f430 @uri=#<URI::GID gid://nex-blog/User/1>>
+[ActiveJob] [SendWelcomeEmailJob] [766ab92f-7f5b-48e3-977f-7889a6cfaa67]   Rendering layout layouts/mailer.html.erb
+[ActiveJob] [SendWelcomeEmailJob] [766ab92f-7f5b-48e3-977f-7889a6cfaa67]   Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+[ActiveJob] [SendWelcomeEmailJob] [766ab92f-7f5b-48e3-977f-7889a6cfaa67]   Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 0.5ms | Allocations: 154)
+[ActiveJob] [SendWelcomeEmailJob] [766ab92f-7f5b-48e3-977f-7889a6cfaa67]   Rendered layout layouts/mailer.html.erb (Duration: 2.9ms | Allocations: 391)
+[ActiveJob] [SendWelcomeEmailJob] [766ab92f-7f5b-48e3-977f-7889a6cfaa67] UserMailer#welcome_email: processed outbound mail in 12.5ms
+[ActiveJob] [SendWelcomeEmailJob] [766ab92f-7f5b-48e3-977f-7889a6cfaa67] Delivered mail 6560f4578f5df_2d10768b0-46d@mose-pc.mail (2815.7ms)
+[ActiveJob] [SendWelcomeEmailJob] [766ab92f-7f5b-48e3-977f-7889a6cfaa67] Date: Fri, 24 Nov 2023 22:07:03 +0300
+From: kian99564@gmail.com
+To: ceoian848@gmail.com
+Message-ID: <6560f4578f5df_2d10768b0-46d@mose-pc.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      To login to the site, just follow this link: .
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+[ActiveJob] [SendWelcomeEmailJob] [766ab92f-7f5b-48e3-977f-7889a6cfaa67] Performed SendWelcomeEmailJob (Job ID: 766ab92f-7f5b-48e3-977f-7889a6cfaa67) from Async(default) in 2894.14ms

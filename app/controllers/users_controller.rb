@@ -9,8 +9,9 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      UserMailer.with(user: user).welcome_email(user.email).deliver_now
       session[:user_id] = user.id
+      SendWelcomeEmailJob.set(wait: 20.second).perform_later(user)
+      # UserMailer.with(user: user).welcome_email(user.email).deliver_now
       redirect_to root_path, flash: { success: 'Registration successfully' }
     else
       render :new

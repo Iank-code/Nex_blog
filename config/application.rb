@@ -27,5 +27,7 @@ module NexBlog
     config.middleware.use ActionDispatch::Session::CookieStore
 
     config.action_dispatch.cookies_same_site_protection = :strict
+
+    # config.active_job.queue_adapter = :sidekiq
   end
 end

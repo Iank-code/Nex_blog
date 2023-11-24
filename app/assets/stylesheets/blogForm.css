@@ -39,3 +39,12 @@ input {
 .profile-image{
   width: 20px;
 }
+
+.posts{
+  margin-top: 2em;
+  gap: 10px;
+}
+
+.pagy{
+  display: flex;
+}

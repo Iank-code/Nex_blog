@@ -29062,3 +29062,243 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 22ms (Views: 18.7ms | ActiveRecord: 0.3ms | Allocations: 8668)
 
 
+Started GET "/posts" for ::1 at 2023-11-25 00:09:59 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 20.4ms | Allocations: 10143)
+  Rendered layouts/_navbar.html.erb (Duration: 2.6ms | Allocations: 1044)
+  Rendered layout layouts/application.html.erb (Duration: 54.2ms | Allocations: 33743)
+Completed 200 OK in 70ms (Views: 56.2ms | ActiveRecord: 3.1ms | Allocations: 39286)
+
+
+Started GET "/posts" for ::1 at 2023-11-25 00:10:12 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 10.3ms | Allocations: 5554)
+  Rendered layouts/_navbar.html.erb (Duration: 1.7ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 32.0ms | Allocations: 14289)
+Completed 200 OK in 38ms (Views: 34.3ms | ActiveRecord: 0.3ms | Allocations: 15152)
+
+
+Started GET "/posts" for ::1 at 2023-11-25 00:11:12 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 2049)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 2133)
+Completed 422 Unprocessable Entity in 22ms (Views: 0.4ms | ActiveRecord: 3.0ms | Allocations: 8072)
+
+
+Started GET "/posts" for ::1 at 2023-11-25 00:11:13 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1327)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 1410)
+Completed 422 Unprocessable Entity in 8ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 2365)
+
+
+Started GET "/posts" for ::1 at 2023-11-25 00:11:48 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1278)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1362)
+Completed 422 Unprocessable Entity in 18ms (Views: 0.4ms | ActiveRecord: 2.3ms | Allocations: 7290)
+
+
+Started GET "/posts" for ::1 at 2023-11-25 00:11:49 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1327)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1410)
+Completed 422 Unprocessable Entity in 6ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 2363)
+
+
+Started GET "/posts" for ::1 at 2023-11-25 00:13:36 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 19.4ms | Allocations: 9873)
+  Rendered layouts/_navbar.html.erb (Duration: 1.9ms | Allocations: 1049)
+  Rendered layout layouts/application.html.erb (Duration: 66.3ms | Allocations: 34227)
+Completed 200 OK in 91ms (Views: 73.4ms | ActiveRecord: 3.7ms | Allocations: 40063)
+
+
+Started GET "/posts" for ::1 at 2023-11-25 00:13:51 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 14.1ms | Allocations: 8143)
+  Rendered layouts/_navbar.html.erb (Duration: 3.0ms | Allocations: 1044)
+  Rendered layout layouts/application.html.erb (Duration: 40.6ms | Allocations: 26659)
+Completed 200 OK in 58ms (Views: 42.6ms | ActiveRecord: 3.1ms | Allocations: 32502)
+
+
+Started GET "/posts" for ::1 at 2023-11-25 00:13:51 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 6.8ms | Allocations: 4307)
+  Rendered layouts/_navbar.html.erb (Duration: 2.0ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 7804)
+Completed 200 OK in 17ms (Views: 14.5ms | ActiveRecord: 0.3ms | Allocations: 8667)
+
+
+Started GET "/posts" for ::1 at 2023-11-25 00:14:12 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 16.0ms | Allocations: 6123)
+  Rendered layouts/_navbar.html.erb (Duration: 1.7ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 32.8ms | Allocations: 15282)
+Completed 200 OK in 35ms (Views: 33.3ms | ActiveRecord: 0.2ms | Allocations: 16145)
+
+
+Started GET "/posts" for ::1 at 2023-11-25 00:14:12 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 4308)
+  Rendered layouts/_navbar.html.erb (Duration: 1.7ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 7808)
+Completed 200 OK in 17ms (Views: 14.2ms | ActiveRecord: 0.4ms | Allocations: 8671)
+
+
+Started GET "/posts" for ::1 at 2023-11-25 00:14:13 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 7.8ms | Allocations: 4307)
+  Rendered layouts/_navbar.html.erb (Duration: 1.6ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 17.6ms | Allocations: 7804)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 0.3ms | Allocations: 8667)
+
+
+Started GET "/posts" for ::1 at 2023-11-25 00:14:13 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 42.5ms | Allocations: 4307)
+  Rendered layouts/_navbar.html.erb (Duration: 7.6ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 72.6ms | Allocations: 7804)
+Completed 200 OK in 83ms (Views: 73.8ms | ActiveRecord: 0.4ms | Allocations: 8667)
+
+
+Started GET "/posts" for ::1 at 2023-11-25 00:14:14 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 55.5ms | Allocations: 4309)
+  Rendered layouts/_navbar.html.erb (Duration: 2.4ms | Allocations: 777)
+  Rendered layout layouts/application.html.erb (Duration: 65.4ms | Allocations: 7830)
+Completed 200 OK in 74ms (Views: 66.6ms | ActiveRecord: 0.4ms | Allocations: 8694)
+
+
+Started GET "/posts" for ::1 at 2023-11-25 00:14:21 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 18.2ms | Allocations: 5560)
+  Rendered layouts/_navbar.html.erb (Duration: 2.0ms | Allocations: 777)
+  Rendered layout layouts/application.html.erb (Duration: 38.0ms | Allocations: 14771)
+Completed 200 OK in 42ms (Views: 39.0ms | ActiveRecord: 0.3ms | Allocations: 15634)
+
+
+Started GET "/posts" for ::1 at 2023-11-25 00:14:22 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 8.3ms | Allocations: 4307)
+  Rendered layouts/_navbar.html.erb (Duration: 2.1ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | Allocations: 7804)
+Completed 200 OK in 21ms (Views: 18.3ms | ActiveRecord: 0.3ms | Allocations: 8667)
+
+
+Started GET "/posts" for ::1 at 2023-11-25 00:14:29 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 15.9ms | Allocations: 8083)
+  Rendered layouts/_navbar.html.erb (Duration: 2.0ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 38.2ms | Allocations: 17242)
+Completed 200 OK in 43ms (Views: 38.8ms | ActiveRecord: 0.3ms | Allocations: 18106)
+
+
+Started GET "/posts" for ::1 at 2023-11-25 00:14:30 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 7.8ms | Allocations: 4308)
+  Rendered layouts/_navbar.html.erb (Duration: 1.9ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 7805)
+Completed 200 OK in 20ms (Views: 16.8ms | ActiveRecord: 0.4ms | Allocations: 8668)
+
+

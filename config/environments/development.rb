@@ -1,11 +1,6 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  # Defaults to:
-  # config.action_mailer.sendmail_settings = {
-  #   location: '/usr/sbin/sendmail',
-  #   arguments: %w[ -i ]
-  # }
   config.action_mailer.perform_deliveries = true
 
   config.action_mailer.delivery_method = :smtp

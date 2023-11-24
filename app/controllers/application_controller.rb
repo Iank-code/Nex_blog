@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
     include ActionController::Cookies
     rescue_from StandardError, with: :standard_error
 
+    include Pagy::Backend
+
     helper_method :current_user
     helper_method :user_signed_in?
     before_action :authenticate_user

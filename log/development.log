@@ -27679,3 +27679,1386 @@ FOREIGN KEY ("user_id")
   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
   [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'da621d0b8fae7d2fef189733a6c19886fca1021f', '2023-11-24 19:21:12.149634', '2023-11-24 19:21:12.149636') RETURNING "key"[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/users" for ::1 at 2023-11-24 22:22:36 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"ceoian", "email"=>"ceoian848@gmail.com", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x00007f467470c828 @tempfile=#<Tempfile:/tmp/RackMultipart20231124-186836-ursa1x.png>, @content_type="image/png", @original_filename="airbnbicon.png", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"airbnbicon.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Create (2.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "ceoian"], ["email", "ceoian848@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-11-24 19:22:37.431334"], ["updated_at", "2023-11-24 19:22:37.431334"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["key", "dt8r982aqsk6ifyq7a6wtrnq4ouh"], ["filename", "airbnbicon.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 7384], ["checksum", "Me1cQGDcAyHM/jqnbhIKNw=="], ["created_at", "2023-11-24 19:22:37.557697"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "avatar"], ["record_type", "User"], ["record_id", 1], ["blob_id", 1], ["created_at", "2023-11-24 19:22:37.560610"]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-11-24 19:22:37.571426"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:11:in `create'
+[36m  Disk Storage (3.9ms) [0m[32mUploaded file to key: dt8r982aqsk6ifyq7a6wtrnq4ouh (checksum: Me1cQGDcAyHM/jqnbhIKNw==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: f4745b61-da5f-4e1d-94ff-40e4ce5580ef) to Async(default) with arguments: #<GlobalID:0x00007f4675117bb0 @uri=#<URI::GID gid://nex-blog/ActiveStorage::Blob/1>>
+[ActiveJob] ↳ app/controllers/users_controller.rb:11:in `create'
+[ActiveJob] Enqueued SendWelcomeEmailJob (Job ID: 4f627797-a989-49cf-a0d2-512c0c1a0ccf) to Async(default) at 2023-11-24 19:22:47 UTC with arguments: #<GlobalID:0x00007f467512ea90 @uri=#<URI::GID gid://nex-blog/User/1>>
+[ActiveJob] ↳ app/controllers/users_controller.rb:13:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 757ms (ActiveRecord: 14.1ms | Allocations: 284359)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f4745b61-da5f-4e1d-94ff-40e4ce5580ef]   [1m[36mActiveStorage::Blob Load (1.9ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f4745b61-da5f-4e1d-94ff-40e4ce5580ef] Performing ActiveStorage::AnalyzeJob (Job ID: f4745b61-da5f-4e1d-94ff-40e4ce5580ef) from Async(default) enqueued at 2023-11-24T19:22:37.609003001Z with arguments: #<GlobalID:0x00007f465806ed20 @uri=#<URI::GID gid://nex-blog/ActiveStorage::Blob/1>>
+Started GET "/" for ::1 at 2023-11-24 22:22:37 +0300
+Processing by PostsController#index as TURBO_STREAM
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f4745b61-da5f-4e1d-94ff-40e4ce5580ef] [36m  Disk Storage (20.9ms) [0m[34mDownloaded file from key: dt8r982aqsk6ifyq7a6wtrnq4ouh[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f4745b61-da5f-4e1d-94ff-40e4ce5580ef]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f4745b61-da5f-4e1d-94ff-40e4ce5580ef]   [1m[36mActiveStorage::Blob Update (7.8ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"width\":192,\"height\":192,\"analyzed\":true}"], ["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f4745b61-da5f-4e1d-94ff-40e4ce5580ef]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ?[0m  [["blob_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (Duration: 191.9ms | Allocations: 52999)
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f4745b61-da5f-4e1d-94ff-40e4ce5580ef]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f4745b61-da5f-4e1d-94ff-40e4ce5580ef]   [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-11-24 19:22:37.911596"], ["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f4745b61-da5f-4e1d-94ff-40e4ce5580ef]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f4745b61-da5f-4e1d-94ff-40e4ce5580ef] Performed ActiveStorage::AnalyzeJob (Job ID: f4745b61-da5f-4e1d-94ff-40e4ce5580ef) from Async(default) in 305.6ms
+  Rendered layouts/_navbar.html.erb (Duration: 1.8ms | Allocations: 1096)
+  Rendered layout layouts/application.html.erb (Duration: 238.7ms | Allocations: 78773)
+Completed 200 OK in 271ms (Views: 250.1ms | ActiveRecord: 0.2ms | Allocations: 91703)
+
+
+[ActiveJob] [SendWelcomeEmailJob] [4f627797-a989-49cf-a0d2-512c0c1a0ccf]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [SendWelcomeEmailJob] [4f627797-a989-49cf-a0d2-512c0c1a0ccf] Performing SendWelcomeEmailJob (Job ID: 4f627797-a989-49cf-a0d2-512c0c1a0ccf) from Async(default) enqueued at 2023-11-24T19:22:37.620632242Z with arguments: #<GlobalID:0x00007f4674f34d48 @uri=#<URI::GID gid://nex-blog/User/1>>
+[ActiveJob] [SendWelcomeEmailJob] [4f627797-a989-49cf-a0d2-512c0c1a0ccf]   Rendering layout layouts/mailer.html.erb
+[ActiveJob] [SendWelcomeEmailJob] [4f627797-a989-49cf-a0d2-512c0c1a0ccf]   Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+[ActiveJob] [SendWelcomeEmailJob] [4f627797-a989-49cf-a0d2-512c0c1a0ccf]   Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 0.5ms | Allocations: 154)
+[ActiveJob] [SendWelcomeEmailJob] [4f627797-a989-49cf-a0d2-512c0c1a0ccf]   Rendered layout layouts/mailer.html.erb (Duration: 1.4ms | Allocations: 391)
+[ActiveJob] [SendWelcomeEmailJob] [4f627797-a989-49cf-a0d2-512c0c1a0ccf] UserMailer#welcome_email: processed outbound mail in 8.9ms
+[ActiveJob] [SendWelcomeEmailJob] [4f627797-a989-49cf-a0d2-512c0c1a0ccf] Delivered mail 6560f807a4fb3_2d9d466f81522e@mose-pc.mail (4626.2ms)
+[ActiveJob] [SendWelcomeEmailJob] [4f627797-a989-49cf-a0d2-512c0c1a0ccf] Date: Fri, 24 Nov 2023 22:22:47 +0300
+From: kian99564@gmail.com
+To: ceoian848@gmail.com
+Message-ID: <6560f807a4fb3_2d9d466f81522e@mose-pc.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      To login to the site, just follow this link: .
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+[ActiveJob] [SendWelcomeEmailJob] [4f627797-a989-49cf-a0d2-512c0c1a0ccf] Performed SendWelcomeEmailJob (Job ID: 4f627797-a989-49cf-a0d2-512c0c1a0ccf) from Async(default) in 4672.65ms
+Started POST "/rails/active_storage/direct_uploads" for ::1 at 2023-11-24 22:22:58 +0300
+Processing by ActiveStorage::DirectUploadsController#create as JSON
+  Parameters: {"blob"=>{"filename"=>"Screenshot from 2023-11-18 10-23-13.png", "content_type"=>"image/png", "byte_size"=>404015, "checksum"=>"F4mmCq8njWRSlV7dV0x30A=="}, "direct_upload"=>{"blob"=>{"filename"=>"Screenshot from 2023-11-18 10-23-13.png", "content_type"=>"image/png", "byte_size"=>404015, "checksum"=>"F4mmCq8njWRSlV7dV0x30A=="}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveStorage::Blob Create (3.8ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["key", "u5kjydyktivzgxhsc5yjwg6gwof9"], ["filename", "Screenshot from 2023-11-18 10-23-13.png"], ["content_type", "image/png"], ["metadata", nil], ["service_name", "local"], ["byte_size", 404015], ["checksum", "F4mmCq8njWRSlV7dV0x30A=="], ["created_at", "2023-11-24 19:22:58.989139"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+[36m  Disk Storage (0.6ms) [0m[34mGenerated URL for file at key: u5kjydyktivzgxhsc5yjwg6gwof9 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ1NWtqeWR5a3RpdnpneGhzYzV5andnNmd3b2Y5IiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwiY29udGVudF9sZW5ndGgiOjQwNDAxNSwiY2hlY2tzdW0iOiJGNG1tQ3E4bmpXUlNsVjdkVjB4MzBBPT0iLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDIzLTExLTI0VDE5OjI3OjU5LjAwNFoiLCJwdXIiOiJibG9iX3Rva2VuIn19--3454afb3855f90810f482eeda47bd4902be5a22b)[0m
+Completed 200 OK in 24ms (Views: 0.4ms | ActiveRecord: 4.1ms | Allocations: 4520)
+
+
+Started PUT "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ1NWtqeWR5a3RpdnpneGhzYzV5andnNmd3b2Y5IiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwiY29udGVudF9sZW5ndGgiOjQwNDAxNSwiY2hlY2tzdW0iOiJGNG1tQ3E4bmpXUlNsVjdkVjB4MzBBPT0iLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDIzLTExLTI0VDE5OjI3OjU5LjAwNFoiLCJwdXIiOiJibG9iX3Rva2VuIn19--3454afb3855f90810f482eeda47bd4902be5a22b" for ::1 at 2023-11-24 22:22:59 +0300
+Processing by ActiveStorage::DiskController#update as */*
+  Parameters: {"encoded_token"=>"[FILTERED]"}
+[36m  Disk Storage (1.7ms) [0m[32mUploaded file to key: u5kjydyktivzgxhsc5yjwg6gwof9 (checksum: F4mmCq8njWRSlV7dV0x30A==)[0m
+Completed 204 No Content in 3ms (ActiveRecord: 0.0ms | Allocations: 695)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--f1dd25134e8b35539595a7e9c831083b6c0e1241/Screenshot%20from%202023-11-18%2010-23-13.png" for ::1 at 2023-11-24 22:22:59 +0300
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--f1dd25134e8b35539595a7e9c831083b6c0e1241", "filename"=>"Screenshot from 2023-11-18 10-23-13"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[36m  Disk Storage (0.8ms) [0m[34mGenerated URL for file at key: u5kjydyktivzgxhsc5yjwg6gwof9 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ1NWtqeWR5a3RpdnpneGhzYzV5andnNmd3b2Y5IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQxOToyNzo1OS4wODJaIiwicHVyIjoiYmxvYl9rZXkifX0=--f7800ddce79206b792df7b1b7da362fa1e33f162/Screenshot%20from%202023-11-18%2010-23-13.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ1NWtqeWR5a3RpdnpneGhzYzV5andnNmd3b2Y5IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQxOToyNzo1OS4wODJaIiwicHVyIjoiYmxvYl9rZXkifX0=--f7800ddce79206b792df7b1b7da362fa1e33f162/Screenshot%20from%202023-11-18%2010-23-13.png
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms | Allocations: 2063)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ1NWtqeWR5a3RpdnpneGhzYzV5andnNmd3b2Y5IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQxOToyNzo1OS4wODJaIiwicHVyIjoiYmxvYl9rZXkifX0=--f7800ddce79206b792df7b1b7da362fa1e33f162/Screenshot%20from%202023-11-18%2010-23-13.png" for ::1 at 2023-11-24 22:22:59 +0300
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-11-18 10-23-13"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 195)
+
+
+Started POST "/posts" for ::1 at 2023-11-24 22:23:00 +0300
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "title"=>"First", "content"=>"<div>First blog<br><figure data-trix-attachment=\"{&quot;contentType&quot;:&quot;image/png&quot;,&quot;filename&quot;:&quot;Screenshot from 2023-11-18 10-23-13.png&quot;,&quot;filesize&quot;:404015,&quot;height&quot;:900,&quot;sgid&quot;:&quot;eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL25leC1ibG9nL0FjdGl2ZVN0b3JhZ2U6OkJsb2IvMj9leHBpcmVzX2luIiwicHVyIjoiYXR0YWNoYWJsZSJ9fQ==--afcb466bd4db2f642017dd139861d762e299137e&quot;,&quot;url&quot;:&quot;http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--f1dd25134e8b35539595a7e9c831083b6c0e1241/Screenshot%20from%202023-11-18%2010-23-13.png&quot;,&quot;width&quot;:1600}\" data-trix-content-type=\"image/png\" data-trix-attributes=\"{&quot;presentation&quot;:&quot;gallery&quot;}\" class=\"attachment attachment--preview attachment--png\"><img src=\"http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--f1dd25134e8b35539595a7e9c831083b6c0e1241/Screenshot%20from%202023-11-18%2010-23-13.png\" width=\"1600\" height=\"900\"><figcaption class=\"attachment__caption\"><span class=\"attachment__name\">Screenshot from 2023-11-18 10-23-13.png</span> <span class=\"attachment__size\">394.55 KB</span></figcaption></figure></div>", "commit"=>"Save "}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "First"], ["content", nil], ["user_id", 1], ["created_at", "2023-11-24 19:23:00.802939"], ["updated_at", "2023-11-24 19:23:00.802939"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mCACHE ActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mActionText::RichText Create (0.2ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "content"], ["body", "<div>First blog<br><action-text-attachment sgid=\"eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL25leC1ibG9nL0FjdGl2ZVN0b3JhZ2U6OkJsb2IvMj9leHBpcmVzX2luIiwicHVyIjoiYXR0YWNoYWJsZSJ9fQ==--afcb466bd4db2f642017dd139861d762e299137e\" content-type=\"image/png\" url=\"http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--f1dd25134e8b35539595a7e9c831083b6c0e1241/Screenshot%20from%202023-11-18%2010-23-13.png\" filename=\"Screenshot from 2023-11-18 10-23-13.png\" filesize=\"404015\" width=\"1600\" height=\"900\" presentation=\"gallery\"></action-text-attachment></div>"], ["record_type", "Post"], ["record_id", 1], ["created_at", "2023-11-24 19:23:00.824988"], ["updated_at", "2023-11-24 19:23:00.824988"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mActiveStorage::Blob Update (0.1ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true}"], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ?[0m  [["blob_id", 2]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "embeds"], ["record_type", "ActionText::RichText"], ["record_id", 1], ["blob_id", 2], ["created_at", "2023-11-24 19:23:00.843942"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mPost Update (0.2ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2023-11-24 19:23:00.848110"], ["id", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mActionText::RichText Update (0.2ms)[0m  [1m[33mUPDATE "action_text_rich_texts" SET "updated_at" = ? WHERE "action_text_rich_texts"."id" = ?[0m  [["updated_at", "2023-11-24 19:23:00.847406"], ["id", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 02f28a67-1c59-499a-829e-857ceb04ccba) to Async(default) with arguments: #<GlobalID:0x00007f46703abe80 @uri=#<URI::GID gid://nex-blog/ActiveStorage::Blob/2>>
+[ActiveJob] ↳ app/controllers/posts_controller.rb:27:in `block in create'
+Completed 422 Unprocessable Entity in 106ms (Views: 0.2ms | ActiveRecord: 4.5ms | Allocations: 89406)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [02f28a67-1c59-499a-829e-857ceb04ccba]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [02f28a67-1c59-499a-829e-857ceb04ccba] Performing ActiveStorage::AnalyzeJob (Job ID: 02f28a67-1c59-499a-829e-857ceb04ccba) from Async(default) enqueued at 2023-11-24T19:23:00.858792995Z with arguments: #<GlobalID:0x00007f465891fc30 @uri=#<URI::GID gid://nex-blog/ActiveStorage::Blob/2>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [02f28a67-1c59-499a-829e-857ceb04ccba] [36m  Disk Storage (1.2ms) [0m[34mDownloaded file from key: u5kjydyktivzgxhsc5yjwg6gwof9[0m
+Started GET "/" for ::1 at 2023-11-24 22:23:00 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 12.9ms | Allocations: 3577)
+  Rendered layouts/_navbar.html.erb (Duration: 3.9ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 29.4ms | Allocations: 7095)
+Completed 200 OK in 47ms (Views: 43.6ms | ActiveRecord: 0.2ms | Allocations: 7955)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [02f28a67-1c59-499a-829e-857ceb04ccba]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [02f28a67-1c59-499a-829e-857ceb04ccba]   [1m[36mActiveStorage::Blob Update (3.8ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"width\":1600,\"height\":900,\"analyzed\":true}"], ["id", 2]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [02f28a67-1c59-499a-829e-857ceb04ccba]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ?[0m  [["blob_id", 2]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [02f28a67-1c59-499a-829e-857ceb04ccba]   [1m[36mActionText::RichText Load (2.6ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."id" = ?[0m  [["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [02f28a67-1c59-499a-829e-857ceb04ccba]   [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [02f28a67-1c59-499a-829e-857ceb04ccba]   [1m[36mActionText::RichText Update (0.1ms)[0m  [1m[33mUPDATE "action_text_rich_texts" SET "updated_at" = ? WHERE "action_text_rich_texts"."id" = ?[0m  [["updated_at", "2023-11-24 19:23:00.973351"], ["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [02f28a67-1c59-499a-829e-857ceb04ccba]   [1m[36mPost Update (0.2ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2023-11-24 19:23:00.980588"], ["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [02f28a67-1c59-499a-829e-857ceb04ccba]   [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [02f28a67-1c59-499a-829e-857ceb04ccba] Performed ActiveStorage::AnalyzeJob (Job ID: 02f28a67-1c59-499a-829e-857ceb04ccba) from Async(default) in 119.78ms
+Started GET "/posts/1" for ::1 at 2023-11-24 22:23:02 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `show'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:10
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:10
+  Rendered active_storage/blobs/_blob.html.erb (Duration: 29.7ms | Allocations: 3331)
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 38.5ms | Allocations: 6223)
+  Rendered posts/show.html.erb within layouts/application (Duration: 47.6ms | Allocations: 9237)
+  Rendered layouts/_navbar.html.erb (Duration: 1.4ms | Allocations: 777)
+  Rendered layout layouts/application.html.erb (Duration: 53.8ms | Allocations: 12759)
+Completed 200 OK in 61ms (Views: 54.9ms | ActiveRecord: 0.6ms | Allocations: 15796)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--668214283fdc1b7b31594fdbf78efe319b014b34/airbnbicon.png" for ::1 at 2023-11-24 22:23:02 +0300
+Started GET "/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--f1dd25134e8b35539595a7e9c831083b6c0e1241/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJwbmciLCJyZXNpemVfdG9fbGltaXQiOlsxMDI0LDc2OF19LCJwdXIiOiJ2YXJpYXRpb24ifX0=--0ec32677d8f62488be9307b42b1821552fc3a312/Screenshot%20from%202023-11-18%2010-23-13.png" for ::1 at 2023-11-24 22:23:02 +0300
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+Processing by ActiveStorage::Representations::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--668214283fdc1b7b31594fdbf78efe319b014b34", "filename"=>"airbnbicon"}
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--f1dd25134e8b35539595a7e9c831083b6c0e1241", "variation_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-11-18 10-23-13"}
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (0.4ms) [0m[34mGenerated URL for file at key: dt8r982aqsk6ifyq7a6wtrnq4ouh (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMTk6Mjg6MDIuNzYxWiIsInB1ciI6ImJsb2Jfa2V5In19--2ac7918bdb605f5249e4bf30fac2f65d4659cc31/airbnbicon.png)[0m
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMTk6Mjg6MDIuNzYxWiIsInB1ciI6ImJsb2Jfa2V5In19--2ac7918bdb605f5249e4bf30fac2f65d4659cc31/airbnbicon.png
+Completed 302 Found in 7ms (ActiveRecord: 0.1ms | Allocations: 1835)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMTk6Mjg6MDIuNzYxWiIsInB1ciI6ImJsb2Jfa2V5In19--2ac7918bdb605f5249e4bf30fac2f65d4659cc31/airbnbicon.png" for ::1 at 2023-11-24 22:23:02 +0300
+  [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ? AND "active_storage_variant_records"."variation_digest" = ? LIMIT ?[0m  [["blob_id", 2], ["variation_digest", "wjqVtOuFppDd1oEBBMUc2TyD8vk="], ["LIMIT", 1]]
+[36m  Disk Storage (0.8ms) [0m[34mDownloaded file from key: u5kjydyktivzgxhsc5yjwg6gwof9[0m
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"airbnbicon"}
+Completed 200 OK in 4ms (ActiveRecord: 0.0ms | Allocations: 543)
+
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveStorage::VariantRecord Create (1.6ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("blob_id", "variation_digest") VALUES (?, ?) RETURNING "id"[0m  [["blob_id", 2], ["variation_digest", "wjqVtOuFppDd1oEBBMUc2TyD8vk="]]
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Create (0.8ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["key", "rd3twdpoccq8kft8udwr0jb48r3r"], ["filename", "Screenshot from 2023-11-18 10-23-13.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 309602], ["checksum", "bgBAzLi/rrzew12d3r17Cw=="], ["created_at", "2023-11-24 19:23:03.035939"]]
+  [1m[36mActiveStorage::Attachment Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "image"], ["record_type", "ActiveStorage::VariantRecord"], ["record_id", 1], ["blob_id", 3], ["created_at", "2023-11-24 19:23:03.040047"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+[36m  Disk Storage (1.4ms) [0m[32mUploaded file to key: rd3twdpoccq8kft8udwr0jb48r3r (checksum: bgBAzLi/rrzew12d3r17Cw==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 914ede2d-a066-42b8-9a78-e72f6c45e6f8) to Async(default) with arguments: #<GlobalID:0x00007f465890f420 @uri=#<URI::GID gid://nex-blog/ActiveStorage::Blob/3>>
+[36m  Disk Storage (0.7ms) [0m[34mGenerated URL for file at key: rd3twdpoccq8kft8udwr0jb48r3r (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyZDN0d2Rwb2NjcThrZnQ4dWR3cjBqYjQ4cjNyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQxOToyODowMy4wNTJaIiwicHVyIjoiYmxvYl9rZXkifX0=--9d29372a473344c07ac0f71a75d60e4087759a1f/Screenshot%20from%202023-11-18%2010-23-13.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyZDN0d2Rwb2NjcThrZnQ4dWR3cjBqYjQ4cjNyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQxOToyODowMy4wNTJaIiwicHVyIjoiYmxvYl9rZXkifX0=--9d29372a473344c07ac0f71a75d60e4087759a1f/Screenshot%20from%202023-11-18%2010-23-13.png
+Completed 302 Found in 295ms (ActiveRecord: 4.1ms | Allocations: 45327)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [914ede2d-a066-42b8-9a78-e72f6c45e6f8]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [914ede2d-a066-42b8-9a78-e72f6c45e6f8] Performing ActiveStorage::AnalyzeJob (Job ID: 914ede2d-a066-42b8-9a78-e72f6c45e6f8) from Async(default) enqueued at 2023-11-24T19:23:03.047422712Z with arguments: #<GlobalID:0x00007f4670394140 @uri=#<URI::GID gid://nex-blog/ActiveStorage::Blob/3>>
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyZDN0d2Rwb2NjcThrZnQ4dWR3cjBqYjQ4cjNyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQxOToyODowMy4wNTJaIiwicHVyIjoiYmxvYl9rZXkifX0=--9d29372a473344c07ac0f71a75d60e4087759a1f/Screenshot%20from%202023-11-18%2010-23-13.png" for ::1 at 2023-11-24 22:23:03 +0300
+[ActiveJob] [ActiveStorage::AnalyzeJob] [914ede2d-a066-42b8-9a78-e72f6c45e6f8] [36m  Disk Storage (3.7ms) [0m[34mDownloaded file from key: rd3twdpoccq8kft8udwr0jb48r3r[0m
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-11-18 10-23-13"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 180)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [914ede2d-a066-42b8-9a78-e72f6c45e6f8]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [914ede2d-a066-42b8-9a78-e72f6c45e6f8]   [1m[36mActiveStorage::Blob Update (1.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"width\":1024,\"height\":576,\"analyzed\":true}"], ["id", 3]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [914ede2d-a066-42b8-9a78-e72f6c45e6f8]   [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ?[0m  [["blob_id", 3]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [914ede2d-a066-42b8-9a78-e72f6c45e6f8]   [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."id" = ?[0m  [["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [914ede2d-a066-42b8-9a78-e72f6c45e6f8]   [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [914ede2d-a066-42b8-9a78-e72f6c45e6f8] Performed ActiveStorage::AnalyzeJob (Job ID: 914ede2d-a066-42b8-9a78-e72f6c45e6f8) from Async(default) in 66.81ms
+Started GET "/posts/1" for ::1 at 2023-11-24 22:23:38 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `show'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:10
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:10
+  Rendered active_storage/blobs/_blob.html.erb (Duration: 5.2ms | Allocations: 1592)
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 14.3ms | Allocations: 4282)
+  Rendered posts/show.html.erb within layouts/application (Duration: 22.3ms | Allocations: 7827)
+  Rendered layouts/_navbar.html.erb (Duration: 1.7ms | Allocations: 1046)
+  Rendered layout layouts/application.html.erb (Duration: 40.8ms | Allocations: 26398)
+Completed 200 OK in 103ms (Views: 43.0ms | ActiveRecord: 7.2ms | Allocations: 56302)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMTk6Mjg6MDIuNzYxWiIsInB1ciI6ImJsb2Jfa2V5In19--2ac7918bdb605f5249e4bf30fac2f65d4659cc31/airbnbicon.png" for ::1 at 2023-11-24 22:23:38 +0300
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyZDN0d2Rwb2NjcThrZnQ4dWR3cjBqYjQ4cjNyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQxOToyODowMy4wNTJaIiwicHVyIjoiYmxvYl9rZXkifX0=--9d29372a473344c07ac0f71a75d60e4087759a1f/Screenshot%20from%202023-11-18%2010-23-13.png" for ::1 at 2023-11-24 22:23:38 +0300
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"airbnbicon"}
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-11-18 10-23-13"}
+Completed 304 Not Modified in 3ms (ActiveRecord: 0.0ms | Allocations: 378)
+
+
+Completed 304 Not Modified in 10ms (ActiveRecord: 0.0ms | Allocations: 976)
+
+
+Started GET "/posts/1" for ::1 at 2023-11-24 22:25:13 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `show'
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered active_storage/blobs/_blob.html.erb (Duration: 4.9ms | Allocations: 1591)
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 17.1ms | Allocations: 4281)
+  Rendered posts/show.html.erb within layouts/application (Duration: 56.1ms | Allocations: 14850)
+  Rendered layouts/_navbar.html.erb (Duration: 2.1ms | Allocations: 1045)
+  Rendered layout layouts/application.html.erb (Duration: 90.9ms | Allocations: 38960)
+Completed 200 OK in 154ms (Views: 92.5ms | ActiveRecord: 4.2ms | Allocations: 68854)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMTk6Mjg6MDIuNzYxWiIsInB1ciI6ImJsb2Jfa2V5In19--2ac7918bdb605f5249e4bf30fac2f65d4659cc31/airbnbicon.png" for ::1 at 2023-11-24 22:25:13 +0300
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyZDN0d2Rwb2NjcThrZnQ4dWR3cjBqYjQ4cjNyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQxOToyODowMy4wNTJaIiwicHVyIjoiYmxvYl9rZXkifX0=--9d29372a473344c07ac0f71a75d60e4087759a1f/Screenshot%20from%202023-11-18%2010-23-13.png" for ::1 at 2023-11-24 22:25:13 +0300
+Processing by ActiveStorage::DiskController#show as PNG
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"airbnbicon"}
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-11-18 10-23-13"}
+Completed 304 Not Modified in 2ms (ActiveRecord: 0.0ms | Allocations: 288)
+
+
+Completed 304 Not Modified in 7ms (ActiveRecord: 0.0ms | Allocations: 954)
+
+
+Started GET "/posts/1" for ::1 at 2023-11-24 22:25:20 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `show'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered active_storage/blobs/_blob.html.erb (Duration: 1.1ms | Allocations: 459)
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 6.8ms | Allocations: 2800)
+  Rendered posts/show.html.erb within layouts/application (Duration: 19.4ms | Allocations: 6993)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 35.6ms | Allocations: 15219)
+Completed 200 OK in 45ms (Views: 36.2ms | ActiveRecord: 0.7ms | Allocations: 17110)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMTk6Mjg6MDIuNzYxWiIsInB1ciI6ImJsb2Jfa2V5In19--2ac7918bdb605f5249e4bf30fac2f65d4659cc31/airbnbicon.png" for ::1 at 2023-11-24 22:25:20 +0300
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"airbnbicon"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 172)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyZDN0d2Rwb2NjcThrZnQ4dWR3cjBqYjQ4cjNyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQxOToyODowMy4wNTJaIiwicHVyIjoiYmxvYl9rZXkifX0=--9d29372a473344c07ac0f71a75d60e4087759a1f/Screenshot%20from%202023-11-18%2010-23-13.png" for ::1 at 2023-11-24 22:25:20 +0300
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-11-18 10-23-13"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 172)
+
+
+Started GET "/posts/1" for ::1 at 2023-11-24 22:26:02 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `show'
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered active_storage/blobs/_blob.html.erb (Duration: 5.8ms | Allocations: 1593)
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 13.5ms | Allocations: 4286)
+  Rendered posts/show.html.erb within layouts/application (Duration: 28.6ms | Allocations: 10131)
+  Rendered layouts/_navbar.html.erb (Duration: 1.6ms | Allocations: 1045)
+  Rendered layout layouts/application.html.erb (Duration: 64.3ms | Allocations: 33970)
+Completed 200 OK in 118ms (Views: 66.0ms | ActiveRecord: 5.5ms | Allocations: 63909)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMTk6Mjg6MDIuNzYxWiIsInB1ciI6ImJsb2Jfa2V5In19--2ac7918bdb605f5249e4bf30fac2f65d4659cc31/airbnbicon.png" for ::1 at 2023-11-24 22:26:02 +0300
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyZDN0d2Rwb2NjcThrZnQ4dWR3cjBqYjQ4cjNyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQxOToyODowMy4wNTJaIiwicHVyIjoiYmxvYl9rZXkifX0=--9d29372a473344c07ac0f71a75d60e4087759a1f/Screenshot%20from%202023-11-18%2010-23-13.png" for ::1 at 2023-11-24 22:26:02 +0300
+Processing by ActiveStorage::DiskController#show as PNG
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-11-18 10-23-13"}
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"airbnbicon"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 285)
+
+
+Completed 304 Not Modified in 17ms (ActiveRecord: 0.0ms | Allocations: 944)
+
+
+Started GET "/posts/1" for ::1 at 2023-11-24 22:26:02 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `show'
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered active_storage/blobs/_blob.html.erb (Duration: 1.8ms | Allocations: 461)
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 12.8ms | Allocations: 2803)
+  Rendered posts/show.html.erb within layouts/application (Duration: 21.5ms | Allocations: 5101)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 777)
+  Rendered layout layouts/application.html.erb (Duration: 30.1ms | Allocations: 8607)
+Completed 200 OK in 43ms (Views: 30.7ms | ActiveRecord: 0.6ms | Allocations: 10498)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMTk6Mjg6MDIuNzYxWiIsInB1ciI6ImJsb2Jfa2V5In19--2ac7918bdb605f5249e4bf30fac2f65d4659cc31/airbnbicon.png" for ::1 at 2023-11-24 22:26:02 +0300
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyZDN0d2Rwb2NjcThrZnQ4dWR3cjBqYjQ4cjNyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQxOToyODowMy4wNTJaIiwicHVyIjoiYmxvYl9rZXkifX0=--9d29372a473344c07ac0f71a75d60e4087759a1f/Screenshot%20from%202023-11-18%2010-23-13.png" for ::1 at 2023-11-24 22:26:02 +0300
+Processing by ActiveStorage::DiskController#show as PNG
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"airbnbicon"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 172)
+
+
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-11-18 10-23-13"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 172)
+
+
+Started GET "/posts/1" for ::1 at 2023-11-24 22:26:15 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `show'
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered active_storage/blobs/_blob.html.erb (Duration: 3.3ms | Allocations: 1591)
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 10.7ms | Allocations: 4281)
+  Rendered posts/show.html.erb within layouts/application (Duration: 18.9ms | Allocations: 7829)
+  Rendered layouts/_navbar.html.erb (Duration: 2.1ms | Allocations: 1042)
+  Rendered layout layouts/application.html.erb (Duration: 39.2ms | Allocations: 26352)
+Completed 200 OK in 91ms (Views: 40.5ms | ActiveRecord: 5.6ms | Allocations: 56269)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMTk6Mjg6MDIuNzYxWiIsInB1ciI6ImJsb2Jfa2V5In19--2ac7918bdb605f5249e4bf30fac2f65d4659cc31/airbnbicon.png" for ::1 at 2023-11-24 22:26:16 +0300
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyZDN0d2Rwb2NjcThrZnQ4dWR3cjBqYjQ4cjNyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQxOToyODowMy4wNTJaIiwicHVyIjoiYmxvYl9rZXkifX0=--9d29372a473344c07ac0f71a75d60e4087759a1f/Screenshot%20from%202023-11-18%2010-23-13.png" for ::1 at 2023-11-24 22:26:16 +0300
+Processing by ActiveStorage::DiskController#show as PNG
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"airbnbicon"}
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-11-18 10-23-13"}
+Completed 304 Not Modified in 2ms (ActiveRecord: 0.0ms | Allocations: 278)
+
+
+Completed 304 Not Modified in 11ms (ActiveRecord: 0.0ms | Allocations: 954)
+
+
+Started GET "/posts/1" for ::1 at 2023-11-24 22:26:42 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `show'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered active_storage/blobs/_blob.html.erb (Duration: 1.1ms | Allocations: 459)
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 6.5ms | Allocations: 2800)
+  Rendered posts/show.html.erb within layouts/application (Duration: 17.4ms | Allocations: 7458)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 33.3ms | Allocations: 16660)
+Completed 200 OK in 41ms (Views: 33.9ms | ActiveRecord: 0.6ms | Allocations: 18565)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMTk6Mjg6MDIuNzYxWiIsInB1ciI6ImJsb2Jfa2V5In19--2ac7918bdb605f5249e4bf30fac2f65d4659cc31/airbnbicon.png" for ::1 at 2023-11-24 22:26:42 +0300
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyZDN0d2Rwb2NjcThrZnQ4dWR3cjBqYjQ4cjNyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQxOToyODowMy4wNTJaIiwicHVyIjoiYmxvYl9rZXkifX0=--9d29372a473344c07ac0f71a75d60e4087759a1f/Screenshot%20from%202023-11-18%2010-23-13.png" for ::1 at 2023-11-24 22:26:42 +0300
+Processing by ActiveStorage::DiskController#show as PNG
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"airbnbicon"}
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-11-18 10-23-13"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 172)
+
+
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 172)
+
+
+Started GET "/posts/1" for ::1 at 2023-11-24 22:26:53 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `show'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered active_storage/blobs/_blob.html.erb (Duration: 2.0ms | Allocations: 459)
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 11.8ms | Allocations: 2800)
+  Rendered posts/show.html.erb within layouts/application (Duration: 24.2ms | Allocations: 6974)
+  Rendered layouts/_navbar.html.erb (Duration: 2.1ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 46.6ms | Allocations: 15199)
+Completed 200 OK in 55ms (Views: 47.5ms | ActiveRecord: 0.6ms | Allocations: 17090)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMTk6Mjg6MDIuNzYxWiIsInB1ciI6ImJsb2Jfa2V5In19--2ac7918bdb605f5249e4bf30fac2f65d4659cc31/airbnbicon.png" for ::1 at 2023-11-24 22:26:53 +0300
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyZDN0d2Rwb2NjcThrZnQ4dWR3cjBqYjQ4cjNyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQxOToyODowMy4wNTJaIiwicHVyIjoiYmxvYl9rZXkifX0=--9d29372a473344c07ac0f71a75d60e4087759a1f/Screenshot%20from%202023-11-18%2010-23-13.png" for ::1 at 2023-11-24 22:26:53 +0300
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-11-18 10-23-13"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 265)
+
+
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"airbnbicon"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 172)
+
+
+Started GET "/posts/1" for ::1 at 2023-11-24 22:27:00 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `show'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered active_storage/blobs/_blob.html.erb (Duration: 1.5ms | Allocations: 459)
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 6.4ms | Allocations: 2800)
+  Rendered posts/show.html.erb within layouts/application (Duration: 19.1ms | Allocations: 7520)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 36.0ms | Allocations: 15745)
+Completed 200 OK in 49ms (Views: 36.4ms | ActiveRecord: 0.6ms | Allocations: 17636)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMTk6Mjg6MDIuNzYxWiIsInB1ciI6ImJsb2Jfa2V5In19--2ac7918bdb605f5249e4bf30fac2f65d4659cc31/airbnbicon.png" for ::1 at 2023-11-24 22:27:00 +0300
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyZDN0d2Rwb2NjcThrZnQ4dWR3cjBqYjQ4cjNyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQxOToyODowMy4wNTJaIiwicHVyIjoiYmxvYl9rZXkifX0=--9d29372a473344c07ac0f71a75d60e4087759a1f/Screenshot%20from%202023-11-18%2010-23-13.png" for ::1 at 2023-11-24 22:27:00 +0300
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"airbnbicon"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 178)
+
+
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-11-18 10-23-13"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 172)
+
+
+Started GET "/posts/1" for ::1 at 2023-11-24 22:27:29 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `show'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered active_storage/blobs/_blob.html.erb (Duration: 2.4ms | Allocations: 459)
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 11.8ms | Allocations: 2800)
+  Rendered posts/show.html.erb within layouts/application (Duration: 23.5ms | Allocations: 7940)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 57.5ms | Allocations: 16632)
+Completed 200 OK in 70ms (Views: 59.0ms | ActiveRecord: 0.8ms | Allocations: 18537)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMTk6Mjg6MDIuNzYxWiIsInB1ciI6ImJsb2Jfa2V5In19--2ac7918bdb605f5249e4bf30fac2f65d4659cc31/airbnbicon.png" for ::1 at 2023-11-24 22:27:29 +0300
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyZDN0d2Rwb2NjcThrZnQ4dWR3cjBqYjQ4cjNyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQxOToyODowMy4wNTJaIiwicHVyIjoiYmxvYl9rZXkifX0=--9d29372a473344c07ac0f71a75d60e4087759a1f/Screenshot%20from%202023-11-18%2010-23-13.png" for ::1 at 2023-11-24 22:27:29 +0300
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-11-18 10-23-13"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"airbnbicon"}
+Completed 304 Not Modified in 2ms (ActiveRecord: 0.0ms | Allocations: 172)
+
+
+Started GET "/posts/1" for ::1 at 2023-11-24 22:27:44 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `show'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered active_storage/blobs/_blob.html.erb (Duration: 1.5ms | Allocations: 459)
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 9.4ms | Allocations: 2800)
+  Rendered posts/show.html.erb within layouts/application (Duration: 20.8ms | Allocations: 6986)
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 38.4ms | Allocations: 16229)
+Completed 200 OK in 46ms (Views: 38.9ms | ActiveRecord: 0.7ms | Allocations: 18120)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMTk6Mjg6MDIuNzYxWiIsInB1ciI6ImJsb2Jfa2V5In19--2ac7918bdb605f5249e4bf30fac2f65d4659cc31/airbnbicon.png" for ::1 at 2023-11-24 22:27:44 +0300
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyZDN0d2Rwb2NjcThrZnQ4dWR3cjBqYjQ4cjNyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQxOToyODowMy4wNTJaIiwicHVyIjoiYmxvYl9rZXkifX0=--9d29372a473344c07ac0f71a75d60e4087759a1f/Screenshot%20from%202023-11-18%2010-23-13.png" for ::1 at 2023-11-24 22:27:44 +0300
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"airbnbicon"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 172)
+
+
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-11-18 10-23-13"}
+Completed 304 Not Modified in 3ms (ActiveRecord: 0.0ms | Allocations: 172)
+
+
+Started GET "/posts/1" for ::1 at 2023-11-24 22:27:45 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `show'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered active_storage/blobs/_blob.html.erb (Duration: 1.3ms | Allocations: 459)
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 7.1ms | Allocations: 2800)
+  Rendered posts/show.html.erb within layouts/application (Duration: 13.7ms | Allocations: 5095)
+  Rendered layouts/_navbar.html.erb (Duration: 1.4ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 8592)
+Completed 200 OK in 26ms (Views: 19.8ms | ActiveRecord: 0.6ms | Allocations: 10483)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMTk6Mjg6MDIuNzYxWiIsInB1ciI6ImJsb2Jfa2V5In19--2ac7918bdb605f5249e4bf30fac2f65d4659cc31/airbnbicon.png" for ::1 at 2023-11-24 22:27:45 +0300
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyZDN0d2Rwb2NjcThrZnQ4dWR3cjBqYjQ4cjNyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQxOToyODowMy4wNTJaIiwicHVyIjoiYmxvYl9rZXkifX0=--9d29372a473344c07ac0f71a75d60e4087759a1f/Screenshot%20from%202023-11-18%2010-23-13.png" for ::1 at 2023-11-24 22:27:45 +0300
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-11-18 10-23-13"}
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"airbnbicon"}
+Completed 304 Not Modified in 3ms (ActiveRecord: 0.0ms | Allocations: 748)
+
+
+Completed 304 Not Modified in 4ms (ActiveRecord: 0.0ms | Allocations: 590)
+
+
+Started GET "/posts/1" for ::1 at 2023-11-24 22:27:59 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `show'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered active_storage/blobs/_blob.html.erb (Duration: 2.1ms | Allocations: 459)
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 11.1ms | Allocations: 2800)
+  Rendered posts/show.html.erb within layouts/application (Duration: 18.8ms | Allocations: 5135)
+  Rendered layouts/_navbar.html.erb (Duration: 3.2ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 29.4ms | Allocations: 8632)
+Completed 200 OK in 39ms (Views: 30.2ms | ActiveRecord: 0.6ms | Allocations: 10523)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMTk6Mjg6MDIuNzYxWiIsInB1ciI6ImJsb2Jfa2V5In19--2ac7918bdb605f5249e4bf30fac2f65d4659cc31/airbnbicon.png" for ::1 at 2023-11-24 22:28:00 +0300
+Processing by ActiveStorage::DiskController#show as PNG
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyZDN0d2Rwb2NjcThrZnQ4dWR3cjBqYjQ4cjNyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQxOToyODowMy4wNTJaIiwicHVyIjoiYmxvYl9rZXkifX0=--9d29372a473344c07ac0f71a75d60e4087759a1f/Screenshot%20from%202023-11-18%2010-23-13.png" for ::1 at 2023-11-24 22:28:00 +0300
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"airbnbicon"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 172)
+
+
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-11-18 10-23-13"}
+Completed 304 Not Modified in 2ms (ActiveRecord: 0.0ms | Allocations: 172)
+
+
+Started GET "/posts/1" for ::1 at 2023-11-24 22:28:00 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `show'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered active_storage/blobs/_blob.html.erb (Duration: 1.7ms | Allocations: 459)
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 9.2ms | Allocations: 2800)
+  Rendered posts/show.html.erb within layouts/application (Duration: 14.5ms | Allocations: 5095)
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | Allocations: 8592)
+Completed 200 OK in 26ms (Views: 20.3ms | ActiveRecord: 0.5ms | Allocations: 10483)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMTk6Mjg6MDIuNzYxWiIsInB1ciI6ImJsb2Jfa2V5In19--2ac7918bdb605f5249e4bf30fac2f65d4659cc31/airbnbicon.png" for ::1 at 2023-11-24 22:28:00 +0300
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyZDN0d2Rwb2NjcThrZnQ4dWR3cjBqYjQ4cjNyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQxOToyODowMy4wNTJaIiwicHVyIjoiYmxvYl9rZXkifX0=--9d29372a473344c07ac0f71a75d60e4087759a1f/Screenshot%20from%202023-11-18%2010-23-13.png" for ::1 at 2023-11-24 22:28:00 +0300
+Processing by ActiveStorage::DiskController#show as PNG
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-11-18 10-23-13"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 172)
+
+
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"airbnbicon"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 172)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:33:51 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 9.5ms | Allocations: 4491)
+  Rendered layouts/_navbar.html.erb (Duration: 1.3ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 17.0ms | Allocations: 7988)
+Completed 200 OK in 23ms (Views: 17.9ms | ActiveRecord: 2.6ms | Allocations: 9158)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--668214283fdc1b7b31594fdbf78efe319b014b34/airbnbicon.png" for ::1 at 2023-11-24 23:33:51 +0300
+Started GET "/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--f1dd25134e8b35539595a7e9c831083b6c0e1241/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJwbmciLCJyZXNpemVfdG9fbGltaXQiOlsxMDI0LDc2OF19LCJwdXIiOiJ2YXJpYXRpb24ifX0=--0ec32677d8f62488be9307b42b1821552fc3a312/Screenshot%20from%202023-11-18%2010-23-13.png" for ::1 at 2023-11-24 23:33:51 +0300
+Processing by ActiveStorage::Representations::RedirectController#show as PNG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--f1dd25134e8b35539595a7e9c831083b6c0e1241", "variation_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-11-18 10-23-13"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ? AND "active_storage_variant_records"."variation_digest" = ? LIMIT ?[0m  [["blob_id", 2], ["variation_digest", "wjqVtOuFppDd1oEBBMUc2TyD8vk="], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[36m  Disk Storage (0.9ms) [0m[34mGenerated URL for file at key: rd3twdpoccq8kft8udwr0jb48r3r (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyZDN0d2Rwb2NjcThrZnQ4dWR3cjBqYjQ4cjNyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQyMDozODo1MS42NTVaIiwicHVyIjoiYmxvYl9rZXkifX0=--d583db82f2c8294d454798c6dcfb96bbcb82a522/Screenshot%20from%202023-11-18%2010-23-13.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyZDN0d2Rwb2NjcThrZnQ4dWR3cjBqYjQ4cjNyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQyMDozODo1MS42NTVaIiwicHVyIjoiYmxvYl9rZXkifX0=--d583db82f2c8294d454798c6dcfb96bbcb82a522/Screenshot%20from%202023-11-18%2010-23-13.png
+Completed 302 Found in 58ms (ActiveRecord: 2.0ms | Allocations: 22913)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyZDN0d2Rwb2NjcThrZnQ4dWR3cjBqYjQ4cjNyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTEtMTggMTAtMjMtMTMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTExLTE4JTIwMTAtMjMtMTMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0yNFQyMDozODo1MS42NTVaIiwicHVyIjoiYmxvYl9rZXkifX0=--d583db82f2c8294d454798c6dcfb96bbcb82a522/Screenshot%20from%202023-11-18%2010-23-13.png" for ::1 at 2023-11-24 23:33:51 +0300
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--668214283fdc1b7b31594fdbf78efe319b014b34", "filename"=>"airbnbicon"}
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (0.9ms) [0m[34mGenerated URL for file at key: dt8r982aqsk6ifyq7a6wtrnq4ouh (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMjA6Mzg6NTEuNjc4WiIsInB1ciI6ImJsb2Jfa2V5In19--8b64b79519d3a1f5bce423fd62fd70e61a584cd3/airbnbicon.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMjA6Mzg6NTEuNjc4WiIsInB1ciI6ImJsb2Jfa2V5In19--8b64b79519d3a1f5bce423fd62fd70e61a584cd3/airbnbicon.png
+Completed 302 Found in 6ms (ActiveRecord: 0.1ms | Allocations: 1330)
+
+
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-11-18 10-23-13"}
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMjA6Mzg6NTEuNjc4WiIsInB1ciI6ImJsb2Jfa2V5In19--8b64b79519d3a1f5bce423fd62fd70e61a584cd3/airbnbicon.png" for ::1 at 2023-11-24 23:33:51 +0300
+Completed 200 OK in 3ms (ActiveRecord: 0.0ms | Allocations: 554)
+
+
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"airbnbicon"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 180)
+
+
+Started POST "/posts" for ::1 at 2023-11-24 23:35:01 +0300
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "title"=>"test", "content"=>"<div>testtesttesttesttest<br>testtesttesttest<br>testtesttesttest</div>", "commit"=>"Save "}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "test"], ["content", nil], ["user_id", 1], ["created_at", "2023-11-24 20:35:01.223178"], ["updated_at", "2023-11-24 20:35:01.223178"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mActionText::RichText Create (0.4ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "content"], ["body", "<div>testtesttesttesttest<br>testtesttesttest<br>testtesttesttest</div>"], ["record_type", "Post"], ["record_id", 2], ["created_at", "2023-11-24 20:35:01.236587"], ["updated_at", "2023-11-24 20:35:01.236587"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 2], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mPost Update (0.1ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2023-11-24 20:35:01.239643"], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (7.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+Completed 422 Unprocessable Entity in 42ms (Views: 0.3ms | ActiveRecord: 10.6ms | Allocations: 12444)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:35:01 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 11.2ms | Allocations: 3563)
+  Rendered layouts/_navbar.html.erb (Duration: 2.6ms | Allocations: 777)
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 7083)
+Completed 200 OK in 25ms (Views: 22.4ms | ActiveRecord: 0.1ms | Allocations: 7912)
+
+
+Started POST "/posts" for ::1 at 2023-11-24 23:35:11 +0300
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "title"=>"dvssdv", "content"=>"<div>adv kldv<br>av kad; as;as vasvasv<br>vanvkaas</div>", "commit"=>"Save "}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "dvssdv"], ["content", nil], ["user_id", 1], ["created_at", "2023-11-24 20:35:11.367189"], ["updated_at", "2023-11-24 20:35:11.367189"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mActionText::RichText Create (0.2ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "content"], ["body", "<div>adv kldv<br>av kad; as;as vasvasv<br>vanvkaas</div>"], ["record_type", "Post"], ["record_id", 3], ["created_at", "2023-11-24 20:35:11.371085"], ["updated_at", "2023-11-24 20:35:11.371085"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 3], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mPost Update (0.2ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2023-11-24 20:35:11.373555"], ["id", 3]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+Completed 422 Unprocessable Entity in 21ms (Views: 0.3ms | ActiveRecord: 3.4ms | Allocations: 7350)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:35:11 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 3587)
+  Rendered layouts/_navbar.html.erb (Duration: 1.8ms | Allocations: 777)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 7096)
+Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 0.1ms | Allocations: 7933)
+
+
+Started POST "/posts" for ::1 at 2023-11-24 23:35:22 +0300
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "title"=>"asvzx iqefax", "content"=>"<div>adv idvnasl<br><br><br><br>sdbvnniowfaszxkwsnI q3eazdioqwrnisXaDQA<br>asnasnpvaenfilwqfa xvdsva</div>", "commit"=>"Save "}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "asvzx iqefax"], ["content", nil], ["user_id", 1], ["created_at", "2023-11-24 20:35:22.625009"], ["updated_at", "2023-11-24 20:35:22.625009"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mActionText::RichText Create (0.2ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "content"], ["body", "<div>adv idvnasl<br><br><br><br>sdbvnniowfaszxkwsnI q3eazdioqwrnisXaDQA<br>asnasnpvaenfilwqfa xvdsva</div>"], ["record_type", "Post"], ["record_id", 4], ["created_at", "2023-11-24 20:35:22.629829"], ["updated_at", "2023-11-24 20:35:22.629829"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 4], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mPost Update (0.1ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2023-11-24 20:35:22.632160"], ["id", 4]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+Completed 422 Unprocessable Entity in 22ms (Views: 0.3ms | ActiveRecord: 2.7ms | Allocations: 7356)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:35:22 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 3613)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 7121)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.1ms | Allocations: 7969)
+
+
+Started POST "/posts" for ::1 at 2023-11-24 23:35:29 +0300
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "title"=>"fasizxiwesdpzwo[fSVDpogeabjbiosvZX ", "content"=>"<div>fasizxiwesdpzwo[fSVDpogeabjbiosvZX&nbsp;</div>", "commit"=>"Save "}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "fasizxiwesdpzwo[fSVDpogeabjbiosvZX "], ["content", nil], ["user_id", 1], ["created_at", "2023-11-24 20:35:29.874262"], ["updated_at", "2023-11-24 20:35:29.874262"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mActionText::RichText Create (0.3ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "content"], ["body", "<div>fasizxiwesdpzwo[fSVDpogeabjbiosvZX&nbsp;</div>"], ["record_type", "Post"], ["record_id", 5], ["created_at", "2023-11-24 20:35:29.878193"], ["updated_at", "2023-11-24 20:35:29.878193"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 5], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mPost Update (0.2ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2023-11-24 20:35:29.881655"], ["id", 5]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+Completed 422 Unprocessable Entity in 22ms (Views: 0.3ms | ActiveRecord: 2.6ms | Allocations: 7357)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:35:29 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 9.1ms | Allocations: 3642)
+  Rendered layouts/_navbar.html.erb (Duration: 1.8ms | Allocations: 777)
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 7148)
+Completed 200 OK in 20ms (Views: 17.6ms | ActiveRecord: 0.1ms | Allocations: 8006)
+
+
+Started POST "/posts" for ::1 at 2023-11-24 23:35:44 +0300
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "title"=>"qfeaosdvZX kj", "content"=>"<div>s ZX:wdsc9ZtgnkNKLNOLBIbgioszn p egazx&nbsp;<br><br><br>vzdnpwtnpesznw<br>ewgsdcl gwlzlw[DZwrsXc<br>neazd'gq<br>eazx</div>", "commit"=>"Save "}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "qfeaosdvZX kj"], ["content", nil], ["user_id", 1], ["created_at", "2023-11-24 20:35:44.285315"], ["updated_at", "2023-11-24 20:35:44.285315"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mActionText::RichText Create (0.2ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "content"], ["body", "<div>s ZX:wdsc9ZtgnkNKLNOLBIbgioszn p egazx&nbsp;<br><br><br>vzdnpwtnpesznw<br>ewgsdcl gwlzlw[DZwrsXc<br>neazd'gq<br>eazx</div>"], ["record_type", "Post"], ["record_id", 6], ["created_at", "2023-11-24 20:35:44.291594"], ["updated_at", "2023-11-24 20:35:44.291594"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 6], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mPost Update (0.1ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2023-11-24 20:35:44.294524"], ["id", 6]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+Completed 422 Unprocessable Entity in 22ms (Views: 0.2ms | ActiveRecord: 2.3ms | Allocations: 7350)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:35:44 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 9.1ms | Allocations: 3666)
+  Rendered layouts/_navbar.html.erb (Duration: 2.8ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 7163)
+Completed 200 OK in 24ms (Views: 20.2ms | ActiveRecord: 0.1ms | Allocations: 8031)
+
+
+Started POST "/posts" for ::1 at 2023-11-24 23:35:57 +0300
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "title"=>"dnspapaaa", "content"=>"<div>asfaaaaaaaaaa<br>aaaaaaa/v<br>dsaaaav<br>a<br>z v<br>zzv</div>", "commit"=>"Save "}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "dnspapaaa"], ["content", nil], ["user_id", 1], ["created_at", "2023-11-24 20:35:57.443388"], ["updated_at", "2023-11-24 20:35:57.443388"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mActionText::RichText Create (0.3ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "content"], ["body", "<div>asfaaaaaaaaaa<br>aaaaaaa/v<br>dsaaaav<br>a<br>z v<br>zzv</div>"], ["record_type", "Post"], ["record_id", 7], ["created_at", "2023-11-24 20:35:57.447840"], ["updated_at", "2023-11-24 20:35:57.447840"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 7], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mPost Update (0.1ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2023-11-24 20:35:57.450712"], ["id", 7]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+Completed 422 Unprocessable Entity in 22ms (Views: 0.2ms | ActiveRecord: 2.1ms | Allocations: 7347)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:35:57 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 7.0ms | Allocations: 3693)
+  Rendered layouts/_navbar.html.erb (Duration: 2.8ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 7190)
+Completed 200 OK in 22ms (Views: 18.8ms | ActiveRecord: 0.2ms | Allocations: 8068)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:42:18 +0300
+  
+NameError (uninitialized constant ApplicationHelper::Pagy):
+  
+app/helpers/application_helper.rb:2:in `<module:ApplicationHelper>'
+app/helpers/application_helper.rb:1:in `<main>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/posts_controller.rb:1:in `<main>'
+Started GET "/" for ::1 at 2023-11-24 23:42:31 +0300
+  
+NameError (uninitialized constant ApplicationController::Pagy):
+  
+app/controllers/application_controller.rb:5:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/posts_controller.rb:1:in `<main>'
+Started GET "/" for ::1 at 2023-11-24 23:42:32 +0300
+  
+NameError (uninitialized constant ApplicationController::Pagy):
+  
+app/controllers/application_controller.rb:5:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/posts_controller.rb:1:in `<main>'
+Started GET "/" for ::1 at 2023-11-24 23:42:32 +0300
+  
+NameError (uninitialized constant ApplicationController::Pagy):
+  
+app/controllers/application_controller.rb:5:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/posts_controller.rb:1:in `<main>'
+Started GET "/" for ::1 at 2023-11-24 23:42:37 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (4.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+Completed 422 Unprocessable Entity in 54ms (Views: 0.3ms | ActiveRecord: 6.9ms | Allocations: 9964)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:42:39 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+Completed 422 Unprocessable Entity in 9ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 3568)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:43:25 +0300
+  
+NameError (uninitialized constant ApplicationController::Pagy):
+  
+app/controllers/application_controller.rb:5:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/posts_controller.rb:1:in `<main>'
+Started GET "/" for ::1 at 2023-11-24 23:43:26 +0300
+  
+NameError (uninitialized constant ApplicationController::Pagy):
+  
+app/controllers/application_controller.rb:5:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/posts_controller.rb:1:in `<main>'
+Started GET "/" for ::1 at 2023-11-24 23:46:08 +0300
+  
+NameError (uninitialized constant ApplicationController::Pagy):
+  
+app/controllers/application_controller.rb:5:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/posts_controller.rb:1:in `<main>'
+Started GET "/" for ::1 at 2023-11-24 23:46:08 +0300
+  
+NameError (uninitialized constant ApplicationController::Pagy):
+  
+app/controllers/application_controller.rb:5:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/posts_controller.rb:1:in `<main>'
+Started GET "/" for ::1 at 2023-11-24 23:46:21 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+Completed 422 Unprocessable Entity in 191ms (Views: 0.3ms | ActiveRecord: 3.3ms | Allocations: 105788)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:48:20 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+Completed 422 Unprocessable Entity in 21ms (Views: 0.5ms | ActiveRecord: 6.7ms | Allocations: 9573)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:48:21 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+Completed 422 Unprocessable Entity in 6ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 2762)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:48:32 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+Completed 422 Unprocessable Entity in 205ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 105788)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:48:33 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+Completed 422 Unprocessable Entity in 7ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 2764)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:49:22 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+Completed 422 Unprocessable Entity in 29ms (Views: 0.4ms | ActiveRecord: 2.7ms | Allocations: 9573)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:49:48 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+Completed 422 Unprocessable Entity in 25ms (Views: 0.3ms | ActiveRecord: 3.9ms | Allocations: 9554)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:51:04 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+Completed 422 Unprocessable Entity in 29ms (Views: 0.5ms | ActiveRecord: 4.5ms | Allocations: 9499)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:51:06 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+Completed 422 Unprocessable Entity in 6ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 2748)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:53:08 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+Completed 422 Unprocessable Entity in 21ms (Views: 0.4ms | ActiveRecord: 2.6ms | Allocations: 9499)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:53:09 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+Completed 422 Unprocessable Entity in 5ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 2748)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:53:16 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+Completed 422 Unprocessable Entity in 196ms (Views: 0.3ms | ActiveRecord: 2.5ms | Allocations: 105796)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:53:17 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+Completed 422 Unprocessable Entity in 7ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 2764)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:54:15 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+Completed 422 Unprocessable Entity in 211ms (Views: 0.3ms | ActiveRecord: 2.3ms | Allocations: 105788)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:56:35 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 85.0ms | Allocations: 44512)
+  Rendered layouts/_navbar.html.erb (Duration: 1.6ms | Allocations: 1065)
+  Rendered layout layouts/application.html.erb (Duration: 104.5ms | Allocations: 63197)
+Completed 200 OK in 127ms (Views: 109.9ms | ActiveRecord: 3.7ms | Allocations: 72439)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:57:42 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 17.2ms | Allocations: 8014)
+  Rendered layouts/_navbar.html.erb (Duration: 2.5ms | Allocations: 1044)
+  Rendered layout layouts/application.html.erb (Duration: 43.0ms | Allocations: 26472)
+Completed 200 OK in 61ms (Views: 47.6ms | ActiveRecord: 3.9ms | Allocations: 32317)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:57:43 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 4316)
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 7813)
+Completed 200 OK in 17ms (Views: 13.8ms | ActiveRecord: 0.4ms | Allocations: 8693)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:58:01 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 12.7ms | Allocations: 8082)
+  Rendered layouts/_navbar.html.erb (Duration: 1.7ms | Allocations: 1044)
+  Rendered layout layouts/application.html.erb (Duration: 34.1ms | Allocations: 26539)
+Completed 200 OK in 49ms (Views: 35.5ms | ActiveRecord: 4.1ms | Allocations: 32381)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:58:01 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 4309)
+  Rendered layouts/_navbar.html.erb (Duration: 1.4ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 7806)
+Completed 200 OK in 16ms (Views: 13.9ms | ActiveRecord: 0.3ms | Allocations: 8669)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:58:02 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 10.4ms | Allocations: 4314)
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 7811)
+Completed 200 OK in 23ms (Views: 19.2ms | ActiveRecord: 0.5ms | Allocations: 8676)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:58:23 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 14.2ms | Allocations: 8045)
+  Rendered layouts/_navbar.html.erb (Duration: 1.9ms | Allocations: 1047)
+  Rendered layout layouts/application.html.erb (Duration: 36.6ms | Allocations: 26624)
+Completed 200 OK in 52ms (Views: 38.5ms | ActiveRecord: 3.7ms | Allocations: 32467)
+
+
+Started GET "/" for ::1 at 2023-11-24 23:58:24 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 12.4ms | Allocations: 4310)
+  Rendered layouts/_navbar.html.erb (Duration: 1.5ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 7824)
+Completed 200 OK in 24ms (Views: 19.1ms | ActiveRecord: 0.4ms | Allocations: 8688)
+
+
+Started GET "/?page=2" for ::1 at 2023-11-24 23:58:25 +0300
+Processing by PostsController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[36mPost Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 5]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 4194)
+  Rendered layouts/_navbar.html.erb (Duration: 1.4ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 15.1ms | Allocations: 7691)
+Completed 200 OK in 18ms (Views: 15.5ms | ActiveRecord: 0.3ms | Allocations: 8555)
+
+
+Started GET "/?page=1" for ::1 at 2023-11-24 23:58:28 +0300
+Processing by PostsController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mPost Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 4308)
+  Rendered layouts/_navbar.html.erb (Duration: 1.9ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 7805)
+Completed 200 OK in 18ms (Views: 15.4ms | ActiveRecord: 0.3ms | Allocations: 8669)
+
+
+Started GET "/posts/4" for ::1 at 2023-11-25 00:00:39 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `show'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.4ms | Allocations: 766)
+  Rendered posts/show.html.erb within layouts/application (Duration: 74.0ms | Allocations: 58332)
+  Rendered layouts/_navbar.html.erb (Duration: 1.6ms | Allocations: 777)
+  Rendered layout layouts/application.html.erb (Duration: 81.4ms | Allocations: 61853)
+Completed 200 OK in 188ms (Views: 81.5ms | ActiveRecord: 2.2ms | Allocations: 210785)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--668214283fdc1b7b31594fdbf78efe319b014b34/airbnbicon.png" for ::1 at 2023-11-25 00:00:39 +0300
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--668214283fdc1b7b31594fdbf78efe319b014b34", "filename"=>"airbnbicon"}
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (1.0ms) [0m[34mGenerated URL for file at key: dt8r982aqsk6ifyq7a6wtrnq4ouh (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMjE6MDU6MzkuNTU2WiIsInB1ciI6ImJsb2Jfa2V5In19--b594ab7b7e47bb6f76d7d232a6b1e1437f4faf14/airbnbicon.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMjE6MDU6MzkuNTU2WiIsInB1ciI6ImJsb2Jfa2V5In19--b594ab7b7e47bb6f76d7d232a6b1e1437f4faf14/airbnbicon.png
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms | Allocations: 2280)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjRUMjE6MDU6MzkuNTU2WiIsInB1ciI6ImJsb2Jfa2V5In19--b594ab7b7e47bb6f76d7d232a6b1e1437f4faf14/airbnbicon.png" for ::1 at 2023-11-25 00:00:39 +0300
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"airbnbicon"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 255)
+
+
+Started GET "/posts" for ::1 at 2023-11-25 00:00:43 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 4318)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 777)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 7838)
+Completed 200 OK in 18ms (Views: 15.6ms | ActiveRecord: 0.3ms | Allocations: 8707)
+
+
+Started GET "/posts/3" for ::1 at 2023-11-25 00:00:44 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `show'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.6ms | Allocations: 367)
+  Rendered posts/show.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2656)
+  Rendered layouts/_navbar.html.erb (Duration: 1.5ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 6170)
+Completed 200 OK in 22ms (Views: 14.9ms | ActiveRecord: 0.5ms | Allocations: 8062)
+
+
+Started GET "/posts" for ::1 at 2023-11-25 00:00:46 +0300
+Processing by PostsController#index as HTML
+  [1m[36mPost Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:19
+  Rendered posts/index.html.erb within layouts/application (Duration: 10.4ms | Allocations: 4307)
+  Rendered layouts/_navbar.html.erb (Duration: 1.6ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 7804)
+Completed 200 OK in 22ms (Views: 18.7ms | ActiveRecord: 0.3ms | Allocations: 8668)
+
+

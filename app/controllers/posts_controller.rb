@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     # before_action :authenticate_user, except: [:index, :show]
 
     def index
-        @posts = Post.all.reverse
+        @pagy, @posts = pagy(Post.order(created_at: :desc))
     end
 
     def show
@@ -11,8 +11,6 @@ class PostsController < ApplicationController
         @user = User.find(@post.user_id)
         @img = ActiveStorage::Blob.find(@user.id)
         @service_img = url_for(@img)
-
-        puts @service_img
         @post
     end
 

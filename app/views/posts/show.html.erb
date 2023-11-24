@@ -2,11 +2,14 @@
 
 
 <div class="content">
-    <%= image_tag @service_img, class: 'profile-image' %>
-    <span class="user-name">
-        Written by <%= @user.name %>
-    </span>
     <%= @post.title %>
+
+    <div class="user-info">
+        <%= image_tag @service_img, class: 'profile-image' %>
+        <span class="user-name">
+            Written by <%= @user.name %>
+        </span>
+    </div>
     <%= @post.content %>
 </div>
 

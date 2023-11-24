@@ -26,11 +26,16 @@ input {
   width: 900px;
 }
 
-.content .user-name{
+.content .user-info .user-name{
   margin-bottom: 10px;
   cursor: pointer;
 }
+.content .user-info{
+  display: flex;
+  align-items: start;
+  gap: 5px;
+}
 
 .profile-image{
-  width: 100px;
+  width: 20px;
 }

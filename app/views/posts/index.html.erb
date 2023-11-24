@@ -21,4 +21,5 @@
             <%= link_to post.title, post %>
         </h2>
     <% end %>
+    <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
 </div>

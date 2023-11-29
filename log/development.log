@@ -29690,3 +29690,116 @@ Processing by ActiveStorage::DiskController#show as PNG
 Completed 200 OK in 3ms (ActiveRecord: 0.0ms | Allocations: 180)
 
 
+Started GET "/posts/5" for ::1 at 2023-11-29 23:08:28 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (2.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `show'
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered /usr/local/rvm/gems/ruby-3.0.0/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.8ms | Allocations: 291)
+  Rendered posts/show.html.erb within layouts/application (Duration: 73.3ms | Allocations: 6044)
+  Rendered layouts/_navbar.html.erb (Duration: 1.7ms | Allocations: 776)
+  Rendered layout layouts/application.html.erb (Duration: 100.1ms | Allocations: 14238)
+Completed 200 OK in 120ms (Views: 100.8ms | ActiveRecord: 3.5ms | Allocations: 16484)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--668214283fdc1b7b31594fdbf78efe319b014b34/airbnbicon.png" for ::1 at 2023-11-29 23:08:28 +0300
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--668214283fdc1b7b31594fdbf78efe319b014b34", "filename"=>"airbnbicon"}
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (18.0ms) [0m[34mGenerated URL for file at key: dt8r982aqsk6ifyq7a6wtrnq4ouh (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjlUMjA6MTM6MjguODg2WiIsInB1ciI6ImJsb2Jfa2V5In19--fea35861c57c889cf6d4d8857ad353a27cb65447/airbnbicon.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjlUMjA6MTM6MjguODg2WiIsInB1ciI6ImJsb2Jfa2V5In19--fea35861c57c889cf6d4d8857ad353a27cb65447/airbnbicon.png
+Completed 302 Found in 28ms (ActiveRecord: 0.1ms | Allocations: 1235)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjlUMjA6MTM6MjguODg2WiIsInB1ciI6ImJsb2Jfa2V5In19--fea35861c57c889cf6d4d8857ad353a27cb65447/airbnbicon.png" for ::1 at 2023-11-29 23:08:29 +0300
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"airbnbicon"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 180)
+
+
+Started GET "/posts/5" for ::1 at 2023-11-29 23:08:29 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `show'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered /usr/local/rvm/gems/ruby-3.0.0/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.2ms | Allocations: 291)
+  Rendered posts/show.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2578)
+  Rendered layouts/_navbar.html.erb (Duration: 1.6ms | Allocations: 779)
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 6081)
+Completed 200 OK in 32ms (Views: 21.4ms | ActiveRecord: 1.1ms | Allocations: 7970)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjlUMjA6MTM6MjguODg2WiIsInB1ciI6ImJsb2Jfa2V5In19--fea35861c57c889cf6d4d8857ad353a27cb65447/airbnbicon.png" for ::1 at 2023-11-29 23:08:30 +0300
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"airbnbicon"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 174)
+
+
+Started GET "/posts/5" for ::1 at 2023-11-29 23:08:50 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `show'
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:14
+  Rendered /usr/local/rvm/gems/ruby-3.0.0/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 2.3ms | Allocations: 525)
+  Rendered posts/show.html.erb within layouts/application (Duration: 10.9ms | Allocations: 4075)
+  Rendered layouts/_navbar.html.erb (Duration: 2.5ms | Allocations: 1050)
+  Rendered layout layouts/application.html.erb (Duration: 59.0ms | Allocations: 22669)
+Completed 200 OK in 121ms (Views: 61.0ms | ActiveRecord: 4.7ms | Allocations: 52634)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjlUMjA6MTM6MjguODg2WiIsInB1ciI6ImJsb2Jfa2V5In19--fea35861c57c889cf6d4d8857ad353a27cb65447/airbnbicon.png" for ::1 at 2023-11-29 23:08:50 +0300
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"airbnbicon"}
+Completed 304 Not Modified in 11ms (ActiveRecord: 0.0ms | Allocations: 326)
+
+
+Started GET "/posts/5" for ::1 at 2023-11-29 23:08:50 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:11:in `show'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:14
+  Rendered /usr/local/rvm/gems/ruby-3.0.0/gems/actiontext-7.1.2/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.1ms | Allocations: 291)
+  Rendered posts/show.html.erb within layouts/application (Duration: 9.8ms | Allocations: 2578)
+  Rendered layouts/_navbar.html.erb (Duration: 1.3ms | Allocations: 776)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 6080)
+Completed 200 OK in 23ms (Views: 17.6ms | ActiveRecord: 0.5ms | Allocations: 7969)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJkdDhyOTgyYXFzazZpZnlxN2E2d3RybnE0b3VoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYWlyYm5iaWNvbi5wbmdcIjsgZmlsZW5hbWUqPVVURi04JydhaXJibmJpY29uLnBuZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3BuZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjMtMTEtMjlUMjA6MTM6MjguODg2WiIsInB1ciI6ImJsb2Jfa2V5In19--fea35861c57c889cf6d4d8857ad353a27cb65447/airbnbicon.png" for ::1 at 2023-11-29 23:08:51 +0300
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"airbnbicon"}
+Completed 304 Not Modified in 2ms (ActiveRecord: 0.0ms | Allocations: 174)
+
+

@@ -39,6 +39,9 @@ input {
 .profile-image{
   width: 20px;
 }
+a:hover{
+  color: blue;
+}
 
 .posts{
   margin-top: 2em;
@@ -47,4 +50,9 @@ input {
 
 .pagy{
   display: flex;
+}
+
+.buttons{
+  display: flex;
+  gap: 2em;
 }

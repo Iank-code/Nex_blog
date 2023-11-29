@@ -14,9 +14,11 @@
 </div>
 
 
-<% if @post.user_id == session[:user_id]  %>
-    <%= link_to 'Edit', edit_post_path(@post) %> |
-    <%= button_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% if @post.user_id == session[:user_id] %>
+    <div class="buttons">
+        <%= link_to 'Edit', edit_post_path(@post) %>
+        <%= button_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
 <% end%>
 
 <%= link_to 'Back', posts_path %>

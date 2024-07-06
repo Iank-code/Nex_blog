@@ -23,7 +23,6 @@ class PostsController < ApplicationController
         @post = Post.new(title: params[:title], content: params[:content], user_id: @user)
         respond_to do | format |
             if @post.save
-                puts @post
                 format.html { redirect_to post_path notice: 'Post was successfully created.'}  
             else
                 format.html { render :new, status: :unprocessable_entity}
